@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 60" width="500" height="60">
+  <defs>
+    <linearGradient id="header-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8B5CF6" />
+      <stop offset="50%" stop-color="#00FF88" />
+      <stop offset="100%" stop-color="#00D9FF" />
+    </linearGradient>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&amp;family=JetBrains+Mono:wght@700&amp;display=swap');
+    
+    .sec-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      font-weight: 900;
+      fill: #FFFFFF;
+      letter-spacing: 2px;
+      filter: url(#glow);
+    }
+    
+    .sec-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      fill: #8B5CF6;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .pulse-dot {
+      fill: #8B5CF6;
+      animation: pulse 1.5s infinite alternate;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 0.3; }
+      100% { opacity: 1; filter: drop-shadow(0 0 4px #8B5CF6); }
+    }
+  </style>
+
+  <!-- Background bar -->
+  <rect x="5" y="10" width="490" height="40" rx="6" fill="#07070a" stroke="url(#header-grad)" stroke-width="1.2" stroke-opacity="0.7" />
+  
+  <!-- Left Side Visual Anchor -->
+  <rect x="15" y="20" width="6" height="20" rx="1" fill="#8B5CF6" filter="url(#glow)" />
+  
+  <!-- Section Title -->
+  <text x="32" y="35" class="sec-title">06 // CORE TERMINAL</text>
+  
+  <!-- Right Side Metadata -->
+  <text x="470" y="34" class="sec-code" text-anchor="end">[ SEC_SYS: 06_SHELL ]</text>
+  <circle cx="280" cy="30" r="3" class="pulse-dot" />
+  
+  <!-- Tech Borders/Brackets -->
+  <path d="M 5,20 L 5,10 L 20,10" fill="none" stroke="#8B5CF6" stroke-width="2" />
+  <path d="M 495,20 L 495,10 L 480,10" fill="none" stroke="#00FF88" stroke-width="2" />
+  <path d="M 5,40 L 5,50 L 20,50" fill="none" stroke="#8B5CF6" stroke-width="2" />
+  <path d="M 495,40 L 495,50 L 480,50" fill="none" stroke="#00FF88" stroke-width="2" />
+</svg>

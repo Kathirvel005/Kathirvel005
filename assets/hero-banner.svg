@@ -1,14 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 350" width="100%" height="350">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="380">
   <defs>
     <!-- Background Gradient -->
-    <radialGradient id="bg-glow" cx="50%" cy="50%" r="75%">
-      <stop offset="0%" stop-color="#0c0720" />
-      <stop offset="50%" stop-color="#050505" />
-      <stop offset="100%" stop-color="#020202" />
+    <radialGradient id="bg-glow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0b061d" />
+      <stop offset="60%" stop-color="#040407" />
+      <stop offset="100%" stop-color="#020203" />
     </radialGradient>
 
     <!-- Glowing Filters -->
-    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+    <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glow-blue" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="6" result="blur" />
       <feMerge>
         <feMergeNode in="blur" />
@@ -16,38 +32,24 @@
       </feMerge>
     </filter>
 
-    <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
-    <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
-    <!-- Linear Gradients for Grid and Shapes -->
+    <!-- Grid linear gradients -->
     <linearGradient id="grid-fade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#00D9FF" stop-opacity="0" />
-      <stop offset="50%" stop-color="#00D9FF" stop-opacity="0.15" />
-      <stop offset="100%" stop-color="#00FF88" stop-opacity="0.4" />
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0" />
+      <stop offset="60%" stop-color="#00D9FF" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#00FF88" stop-opacity="0.35" />
     </linearGradient>
 
+    <!-- Brain connections gradient -->
     <linearGradient id="brain-grad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#8B5CF6" />
-      <stop offset="50%" stop-color="#00D9FF" />
-      <stop offset="100%" stop-color="#00FF88" />
+      <stop offset="40%" stop-color="#00D9FF" />
+      <stop offset="80%" stop-color="#00FF88" />
+      <stop offset="100%" stop-color="#ffffff" />
     </linearGradient>
 
-    <!-- Mask for Perspective Grid -->
+    <!-- Perspective Mask -->
     <mask id="grid-mask">
-      <rect x="0" y="200" width="1200" height="150" fill="url(#grid-mask-grad)" />
+      <rect x="0" y="240" width="1200" height="140" fill="url(#grid-mask-grad)" />
     </mask>
     <linearGradient id="grid-mask-grad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
@@ -56,304 +58,301 @@
   </defs>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=JetBrains+Mono:wght@400;700;800&amp;display=swap');
     
     .text-title {
       font-family: 'Orbitron', sans-serif;
       font-weight: 900;
       fill: #ffffff;
-      letter-spacing: 5px;
+      letter-spacing: 4px;
     }
     
     .text-mono {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+      font-size: 10px;
       fill: #00FF88;
-      opacity: 0.8;
+      opacity: 0.7;
     }
 
-    /* Keyframe Animations */
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.9; }
+    .text-hud {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 8px;
+      fill: #00D9FF;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
-    @keyframes pulse-intense {
-      0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 5px #00FF88); }
-      50% { opacity: 1; filter: drop-shadow(0 0 15px #00FF88); }
-    }
-
+    /* Keyframes */
     @keyframes rotate-cw {
-      0% { transform: translate(600px, 150px) rotate(0deg); }
-      100% { transform: translate(600px, 150px) rotate(360deg); }
+      from { transform: translate(600px, 170px) rotate(0deg); }
+      to { transform: translate(600px, 170px) rotate(360deg); }
     }
-
     @keyframes rotate-ccw {
-      0% { transform: translate(600px, 150px) rotate(360deg); }
-      100% { transform: translate(600px, 150px) rotate(0deg); }
+      from { transform: translate(600px, 170px) rotate(360deg); }
+      to { transform: translate(600px, 170px) rotate(0deg); }
     }
-
-    @keyframes grid-move {
+    @keyframes grid-travel {
       0% { transform: translateY(0); }
-      100% { transform: translateY(30px); }
+      100% { transform: translateY(40px); }
     }
-
-    @keyframes float-hologram {
+    @keyframes float-diag {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(2deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
     }
-
-    @keyframes code-rain-flow {
-      0% { transform: translateY(-100px); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 0.8; }
-      100% { transform: translateY(300px); opacity: 0; }
+    @keyframes matrix-flow {
+      0% { transform: translateY(-120px); opacity: 0; }
+      10% { opacity: 0.9; }
+      90% { opacity: 0.7; }
+      100% { transform: translateY(320px); opacity: 0; }
     }
-
-    @keyframes float-particles {
-      0% { transform: translateY(350px) translateX(0); opacity: 0; }
+    @keyframes particle-rise {
+      0% { transform: translateY(380px) translateX(0); opacity: 0; }
       50% { opacity: 0.6; }
-      100% { transform: translateY(0px) translateX(20px); opacity: 0; }
+      100% { transform: translateY(20px) translateX(15px); opacity: 0; }
+    }
+    @keyframes text-blink {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
     }
 
-    @keyframes line-draw {
-      0% { stroke-dashoffset: 100; }
-      100% { stroke-dashoffset: 0; }
+    /* Assigning animations */
+    .animated-grid {
+      animation: grid-travel 2.5s linear infinite;
     }
-
-    /* CSS classes for assignments */
-    .grid-group {
-      animation: grid-move 2s linear infinite;
-    }
-    .rot-ring-1 {
+    .rot-hud-1 {
       transform-origin: 0 0;
-      animation: rotate-cw 20s linear infinite;
+      animation: rotate-cw 25s linear infinite;
     }
-    .rot-ring-2 {
+    .rot-hud-2 {
       transform-origin: 0 0;
-      animation: rotate-ccw 15s linear infinite;
+      animation: rotate-ccw 18s linear infinite;
     }
-    .rot-ring-3 {
+    .rot-hud-3 {
       transform-origin: 0 0;
-      animation: rotate-cw 8s linear infinite;
+      animation: rotate-cw 10s linear infinite;
     }
-    .floating-laptop {
-      animation: float-hologram 4s ease-in-out infinite;
-      transform-origin: 220px 150px;
+    .hologram-left {
+      animation: float-diag 5s ease-in-out infinite;
+      transform-origin: 200px 170px;
     }
-    .floating-ai {
-      animation: float-hologram 5s ease-in-out infinite;
-      transform-origin: 980px 150px;
+    .hologram-right {
+      animation: float-diag 6.5s ease-in-out infinite;
+      transform-origin: 1000px 170px;
     }
-    .pulse-node {
-      animation: pulse 2s infinite ease-in-out;
-    }
-    .rain-col-1 { animation: code-rain-flow 5s linear infinite; }
-    .rain-col-2 { animation: code-rain-flow 7s linear infinite; }
-    .rain-col-3 { animation: code-rain-flow 4s linear infinite; }
-    .rain-col-4 { animation: code-rain-flow 6s linear infinite; }
+    .flow-1 { animation: matrix-flow 6s linear infinite; }
+    .flow-2 { animation: matrix-flow 8s linear infinite; animation-delay: 2s; }
+    .flow-3 { animation: matrix-flow 5s linear infinite; animation-delay: 4s; }
+    .flow-4 { animation: matrix-flow 7s linear infinite; animation-delay: 1.5s; }
     
-    .p-1 { animation: float-particles 6s infinite linear; }
-    .p-2 { animation: float-particles 8s infinite linear; animation-delay: 2s; }
-    .p-3 { animation: float-particles 7s infinite linear; animation-delay: 4s; }
+    .part-1 { animation: particle-rise 8s infinite linear; }
+    .part-2 { animation: particle-rise 10s infinite linear; animation-delay: 3s; }
+    .part-3 { animation: particle-rise 7s infinite linear; animation-delay: 5s; }
+    
+    .hud-warning {
+      animation: text-blink 2s infinite ease-in-out;
+    }
   </style>
 
   <!-- Background -->
   <rect width="100%" height="100%" fill="url(#bg-glow)" />
 
-  <!-- Code Rain Columns -->
-  <!-- Left Side -->
-  <g class="rain-col-1" transform="translate(40, 0)">
-    <text class="text-mono" x="0" y="20">01011010</text>
-    <text class="text-mono" x="0" y="40">System.out</text>
-    <text class="text-mono" x="0" y="80">Spring.run</text>
-    <text class="text-mono" x="0" y="100">class Model</text>
-    <text class="text-mono" x="0" y="120">0xFFE80A</text>
-  </g>
-  <g class="rain-col-2" transform="translate(120, 0)" style="animation-delay: 1.5s;">
-    <text class="text-mono" x="0" y="10" fill="#00D9FF">import cv2</text>
-    <text class="text-mono" x="0" y="30" fill="#00D9FF">TensorFlow</text>
-    <text class="text-mono" x="0" y="50" fill="#00D9FF">10011100</text>
-    <text class="text-mono" x="0" y="70" fill="#00D9FF">predict()</text>
-    <text class="text-mono" x="0" y="90" fill="#00D9FF">React.DOM</text>
-  </g>
+  <!-- Corner Brackets (Cinematic Frame) -->
+  <path d="M 12,30 L 12,12 L 30,12" fill="none" stroke="#00FF88" stroke-width="2.5" />
+  <path d="M 1188,30 L 1188,12 L 1170,12" fill="none" stroke="#00FF88" stroke-width="2.5" />
+  <path d="M 12,350 L 12,368 L 30,368" fill="none" stroke="#00FF88" stroke-width="2.5" />
+  <path d="M 1188,350 L 1188,368 L 1170,368" fill="none" stroke="#00FF88" stroke-width="2.5" />
 
-  <!-- Right Side -->
-  <g class="rain-col-3" transform="translate(1040, 0)">
-    <text class="text-mono" x="0" y="15" fill="#8B5CF6">agentic_ai</text>
-    <text class="text-mono" x="0" y="35" fill="#8B5CF6">JWT_AUTH</text>
-    <text class="text-mono" x="0" y="55" fill="#8B5CF6">01101001</text>
-    <text class="text-mono" x="0" y="75" fill="#8B5CF6">@Autowired</text>
-    <text class="text-mono" x="0" y="95" fill="#8B5CF6">fetch_api</text>
+  <!-- Horizontal Tech Scale Lines -->
+  <line x1="40" y1="20" x2="240" y2="20" stroke="#00D9FF" stroke-width="1.5" stroke-opacity="0.6" />
+  <circle cx="240" cy="20" r="3" fill="#00D9FF" />
+  <text x="45" y="15" class="text-hud">SEC_LNK: ACTIVE // ADC_CON: 0x92FE</text>
+
+  <line x1="960" y1="20" x2="1160" y2="20" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.6" />
+  <circle cx="960" cy="20" r="3" fill="#8B5CF6" />
+  <text x="1155" y="15" class="text-hud" text-anchor="end">SYS_LOC: 12.04.09.IND // COORD: X-902 / Y-112</text>
+
+  <!-- Digital Code Matrix Stream -->
+  <g class="flow-1" transform="translate(60, 0)">
+    <text class="text-mono" x="0" y="20">01001011</text>
+    <text class="text-mono" x="0" y="45">java.util.*</text>
+    <text class="text-mono" x="0" y="70">@Component</text>
+    <text class="text-mono" x="0" y="95">0x7FFEAA10</text>
+    <text class="text-mono" x="0" y="120">sys.exec_up</text>
   </g>
-  <g class="rain-col-4" transform="translate(1120, 0)" style="animation-delay: 2.5s;">
-    <text class="text-mono" x="0" y="30">MediaPipe</text>
-    <text class="text-mono" x="0" y="50">SUCCESS</text>
-    <text class="text-mono" x="0" y="70">11001011</text>
-    <text class="text-mono" x="0" y="90">MySQL_CONN</text>
-    <text class="text-mono" x="0" y="110">docker_up</text>
+  <g class="flow-2" transform="translate(150, 0)">
+    <text class="text-mono" x="0" y="10" fill="#00D9FF">import cv2</text>
+    <text class="text-mono" x="0" y="35" fill="#00D9FF">neural_core</text>
+    <text class="text-mono" x="0" y="60" fill="#00D9FF">10110011</text>
+    <text class="text-mono" x="0" y="85" fill="#00D9FF">predict_box</text>
+  </g>
+  <g class="flow-3" transform="translate(1010, 0)">
+    <text class="text-mono" x="0" y="15" fill="#8B5CF6">SpringApplication</text>
+    <text class="text-mono" x="0" y="40" fill="#8B5CF6">REST_CALL</text>
+    <text class="text-mono" x="0" y="65" fill="#8B5CF6">JWT_OK</text>
+    <text class="text-mono" x="0" y="90" fill="#8B5CF6">01100110</text>
+  </g>
+  <g class="flow-4" transform="translate(1100, 0)">
+    <text class="text-mono" x="0" y="25">docker_run</text>
+    <text class="text-mono" x="0" y="50">11001101</text>
+    <text class="text-mono" x="0" y="75">MongoDB.node</text>
+    <text class="text-mono" x="0" y="100">AI_VAL_SUCCESS</text>
   </g>
 
   <!-- Perspective Cyber Grid at the Bottom -->
   <g mask="url(#grid-mask)">
-    <!-- Moving horizontal grid lines -->
-    <g class="grid-group">
-      <line x1="0" y1="200" x2="1200" y2="200" stroke="url(#grid-fade)" stroke-width="1.5" />
-      <line x1="0" y1="230" x2="1200" y2="230" stroke="url(#grid-fade)" stroke-width="1.5" />
-      <line x1="0" y1="260" x2="1200" y2="260" stroke="url(#grid-fade)" stroke-width="1.5" />
-      <line x1="0" y1="290" x2="1200" y2="290" stroke="url(#grid-fade)" stroke-width="1.5" />
-      <line x1="0" y1="320" x2="1200" y2="320" stroke="url(#grid-fade)" stroke-width="1.5" />
-      <line x1="0" y1="350" x2="1200" y2="350" stroke="url(#grid-fade)" stroke-width="1.5" />
+    <g class="animated-grid">
+      <line x1="0" y1="240" x2="1200" y2="240" stroke="url(#grid-fade)" stroke-width="1.5" />
+      <line x1="0" y1="270" x2="1200" y2="270" stroke="url(#grid-fade)" stroke-width="1.5" />
+      <line x1="0" y1="300" x2="1200" y2="300" stroke="url(#grid-fade)" stroke-width="1.5" />
+      <line x1="0" y1="330" x2="1200" y2="330" stroke="url(#grid-fade)" stroke-width="1.5" />
+      <line x1="0" y1="360" x2="1200" y2="360" stroke="url(#grid-fade)" stroke-width="1.5" />
+      <line x1="0" y1="390" x2="1200" y2="390" stroke="url(#grid-fade)" stroke-width="1.5" />
     </g>
-    <!-- Static vertical perspective lines converging to (600, 150) -->
-    <g stroke="url(#grid-fade)" stroke-width="1.5">
-      <line x1="600" y1="180" x2="-400" y2="350" />
-      <line x1="600" y1="180" x2="-200" y2="350" />
-      <line x1="600" y1="180" x2="0" y2="350" />
-      <line x1="600" y1="180" x2="200" y2="350" />
-      <line x1="600" y1="180" x2="400" y2="350" />
-      <line x1="600" y1="180" x2="600" y2="350" />
-      <line x1="600" y1="180" x2="800" y2="350" />
-      <line x1="600" y1="180" x2="1000" y2="350" />
-      <line x1="600" y1="180" x2="1200" y2="350" />
-      <line x1="600" y1="180" x2="1400" y2="350" />
-      <line x1="600" y1="180" x2="1600" y2="350" />
+    <g stroke="url(#grid-fade)" stroke-width="1.2">
+      <line x1="600" y1="220" x2="-400" y2="380" />
+      <line x1="600" y1="220" x2="-200" y2="380" />
+      <line x1="600" y1="220" x2="0" y2="380" />
+      <line x1="600" y1="220" x2="200" y2="380" />
+      <line x1="600" y1="220" x2="400" y2="380" />
+      <line x1="600" y1="220" x2="600" y2="380" />
+      <line x1="600" y1="220" x2="800" y2="380" />
+      <line x1="600" y1="220" x2="1000" y2="380" />
+      <line x1="600" y1="220" x2="1200" y2="380" />
+      <line x1="600" y1="220" x2="1400" y2="380" />
+      <line x1="600" y1="220" x2="1600" y2="380" />
     </g>
   </g>
 
-  <!-- Glowing Particles rising from bottom -->
-  <circle cx="200" cy="0" r="3" fill="#00FF88" filter="url(#glow-green)" class="p-1" />
-  <circle cx="500" cy="0" r="4" fill="#00D9FF" filter="url(#glow-blue)" class="p-2" />
-  <circle cx="850" cy="0" r="2.5" fill="#8B5CF6" filter="url(#glow-purple)" class="p-3" />
-  <circle cx="350" cy="0" r="2" fill="#FFFFFF" class="p-2" />
-  <circle cx="1000" cy="0" r="3" fill="#00FF88" filter="url(#glow-green)" class="p-1" />
+  <!-- Glowing rising particles -->
+  <circle cx="150" cy="0" r="3" fill="#00FF88" filter="url(#glow-green)" class="part-1" />
+  <circle cx="450" cy="0" r="4.5" fill="#00D9FF" filter="url(#glow-blue)" class="part-2" />
+  <circle cx="800" cy="0" r="2" fill="#8B5CF6" filter="url(#glow-purple)" class="part-3" />
+  <circle cx="1050" cy="0" r="3.5" fill="#FFFFFF" class="part-2" />
 
-  <!-- Floating Holographic Laptop (Left Side) -->
-  <g class="floating-laptop" transform="translate(180, 80) scale(0.95)" stroke="#00D9FF" fill="none" stroke-width="1.5">
-    <!-- Outer screen glow -->
-    <rect x="-80" y="-60" width="160" height="100" rx="6" stroke="#00D9FF" stroke-opacity="0.3" filter="url(#glow-blue)" />
-    <!-- Screen -->
-    <rect x="-75" y="-55" width="150" height="90" rx="4" stroke="#00D9FF" stroke-width="1.8" />
-    <!-- Screen elements -->
-    <line x1="-65" y1="-45" x2="-20" y2="-45" stroke="#00FF88" stroke-width="2" />
-    <circle cx="65" cy="-45" r="3" fill="#8B5CF6" />
-    <path d="M-65, -30 L-40, -10 L-65, 10" stroke="#00D9FF" stroke-width="2" stroke-linejoin="round" />
-    <line x1="-30" y1="10" x2="10" y2="10" stroke="#00FF88" stroke-width="2" />
-    <rect x="25" y="-20" width="40" height="40" rx="3" stroke="#8B5CF6" stroke-dasharray="3,3" />
-    <!-- Keyboard/Base (Perspective projection) -->
-    <polygon points="-90,45 90,45 110,65 -110,65" stroke="#00D9FF" stroke-width="2" />
-    <line x1="-80" y1="52" x2="80" y2="52" stroke="#00D9FF" stroke-dasharray="2,2" />
-    <line x1="-85" y1="58" x2="85" y2="58" stroke="#00D9FF" />
-    <!-- Trackpad -->
-    <rect x="-20" y="59" width="40" height="5" rx="1" stroke="#00FF88" />
+  <!-- Holographic Left Panel: Floating Diagnostic UI -->
+  <g class="hologram-left" transform="translate(130, 70)">
+    <!-- Main Card Glass -->
+    <rect x="0" y="0" width="180" height="150" rx="8" fill="#07070a" stroke="#00D9FF" stroke-opacity="0.4" stroke-width="1.5" />
+    <!-- Outer Corner ticks -->
+    <path d="M -5,15 L -5,-5 L 15,-5" fill="none" stroke="#00D9FF" stroke-width="2" />
+    <path d="M 185,135 L 185,155 L 165,155" fill="none" stroke="#00FF88" stroke-width="2" />
+    <!-- Graph -->
+    <path d="M 20,110 L 40,85 L 60,95 L 80,60 L 100,75 L 120,40 L 140,55 L 160,30" fill="none" stroke="#00FF88" stroke-width="2" filter="url(#glow-green)" />
+    <path d="M 20,110 L 40,85 L 60,95 L 80,60 L 100,75 L 120,40 L 140,55 L 160,30 L 160,120 L 20,120 Z" fill="#00FF88" fill-opacity="0.08" />
+    <line x1="20" y1="120" x2="160" y2="120" stroke="#8B5CF6" stroke-width="1.5" />
+    <line x1="20" y1="30" x2="20" y2="120" stroke="#8B5CF6" stroke-width="1.5" />
+    <!-- Details -->
+    <text x="90" y="138" class="text-hud" fill="#FFFFFF" text-anchor="middle">AI_MODEL_OPTIMIZER: 98.4%</text>
+    <text x="15" y="20" font-family="'JetBrains Mono', monospace" font-size="8" fill="#8B5CF6" font-weight="700">VAL_LOSS: 0.0102</text>
   </g>
 
-  <!-- Central JARVIS-like Rotating HUD Rings & Neural Brain -->
-  <!-- Concentric Rings (Rotating) -->
-  <g class="rot-ring-1" stroke="#8B5CF6" fill="none" stroke-opacity="0.7">
-    <circle cx="0" cy="0" r="110" stroke-width="1.5" stroke-dasharray="10, 20" />
-    <circle cx="0" cy="0" r="95" stroke-width="1.2" stroke-dasharray="45, 10, 5, 10" />
-  </g>
-  <g class="rot-ring-2" stroke="#00D9FF" fill="none" stroke-opacity="0.8">
-    <circle cx="0" cy="0" r="80" stroke-width="2" stroke-dasharray="120, 10, 20, 10" filter="url(#glow-blue)" />
-    <path d="M-72, 0 A72,72 0 0,1 72,0" stroke="#00FF88" stroke-width="3" />
-  </g>
-  <g class="rot-ring-3" stroke="#00FF88" fill="none" stroke-opacity="0.9">
-    <circle cx="0" cy="0" r="120" stroke-width="0.8" stroke-dasharray="2, 5" />
-    <circle cx="0" cy="0" r="130" stroke-width="1" stroke-dasharray="5, 120" />
+  <!-- Holographic Right Panel: Floating Core Diagnostics -->
+  <g class="hologram-right" transform="translate(890, 70)">
+    <rect x="0" y="0" width="180" height="150" rx="8" fill="#07070a" stroke="#8B5CF6" stroke-opacity="0.4" stroke-width="1.5" />
+    <path d="M 185,15 L 185,-5 L 165,-5" fill="none" stroke="#8B5CF6" stroke-width="2" />
+    <path d="M -5,135 L -5,155 L 15,155" fill="none" stroke="#00FF88" stroke-width="2" />
+    <!-- Dial -->
+    <circle cx="90" cy="70" r="40" fill="none" stroke="#00D9FF" stroke-width="1.5" stroke-dasharray="8,8" />
+    <circle cx="90" cy="70" r="30" fill="none" stroke="#00FF88" stroke-width="2" stroke-dasharray="40,20,5,10" />
+    <circle cx="90" cy="70" r="8" fill="#8B5CF6" filter="url(#glow-purple)" />
+    <!-- Text -->
+    <text x="90" y="130" class="text-hud" fill="#FFFFFF" text-anchor="middle">AGENT_CORE_STATUS</text>
+    <text x="90" y="22" class="text-hud hud-warning" fill="#FF5F56" text-anchor="middle">>> MEMORY_BUS_OK &lt;&lt;</text>
   </g>
 
-  <!-- Neural Network Brain Silhouette -->
-  <!-- Nodes & Connections located in the Center (600, 150) -->
-  <g transform="translate(600, 150)">
-    <!-- Connections -->
-    <g stroke="url(#brain-grad)" stroke-width="1" opacity="0.6">
-      <!-- Left Hemisphere -->
-      <line x1="-40" y1="-60" x2="-60" y2="-30" />
-      <line x1="-60" y1="-30" x2="-70" y2="10" />
-      <line x1="-70" y1="10" x2="-50" y2="50" />
-      <line x1="-50" y1="50" x2="-20" y2="70" />
-      <line x1="-20" y1="70" x2="0" y2="30" />
-      <line x1="0" y1="30" x2="-20" y2="-10" />
-      <line x1="-20" y1="-10" x2="-40" y2="-60" />
+  <!-- Central HUD: Rotating telemetry wheels and complex brain -->
+  <!-- Rotating Outer Rings -->
+  <g class="rot-hud-1" stroke="#8B5CF6" fill="none" stroke-opacity="0.6">
+    <circle cx="0" cy="0" r="145" stroke-width="1.5" stroke-dasharray="15, 30" />
+    <circle cx="0" cy="0" r="130" stroke-width="1" stroke-dasharray="120, 20, 5, 20" />
+  </g>
+  <g class="rot-hud-2" stroke="#00D9FF" fill="none" stroke-opacity="0.7">
+    <circle cx="0" cy="0" r="115" stroke-width="2" stroke-dasharray="80, 10, 5, 10" filter="url(#glow-blue)" />
+    <!-- Circular track labels -->
+    <path id="ring-track" d="M -100,0 A100,100 0 1,1 100,0" stroke="none" />
+    <text font-family="'Orbitron', sans-serif" font-size="6" fill="#00FF88" letter-spacing="1">
+      <textPath href="#ring-track" startOffset="10%">EXEC_ENVIRONMENT_ACTIVE_OK_SYS_ON</textPath>
+    </text>
+  </g>
+  <g class="rot-hud-3" stroke="#00FF88" fill="none" stroke-opacity="0.8">
+    <circle cx="0" cy="0" r="158" stroke-width="0.8" stroke-dasharray="3, 4" />
+    <circle cx="0" cy="0" r="170" stroke-width="1.5" stroke-dasharray="6, 180" />
+  </g>
+
+  <!-- Core Neural Network Brain -->
+  <g transform="translate(600, 170)">
+    <!-- Connective Axons -->
+    <g stroke="url(#brain-grad)" stroke-width="1.2" opacity="0.65">
+      <!-- Outer outline connecting nodes -->
+      <path d="M-60,-80 L-90,-40 L-100,0 L-80,50 L-40,80 L0,40 L40,80 L80,50 L100,0 L90,-40 L60,-80 Z" />
+      <path d="M-40,-50 L-60,-20 L-65,15 L-45,45 L0,20 L45,45 L65,15 L60,-20 L40,-50 Z" />
       
-      <!-- Sub connections -->
-      <line x1="-40" y1="-60" x2="-20" y2="-10" />
-      <line x1="-60" y1="-30" x2="-20" y2="-10" />
-      <line x1="-70" y1="10" x2="-30" y2="20" />
-      <line x1="-30" y1="20" x2="-50" y2="50" />
-      <line x1="-30" y1="20" x2="-20" y2="70" />
-      <line x1="-20" y1="-10" x2="-30" y2="20" />
-
-      <!-- Right Hemisphere -->
-      <line x1="40" y1="-60" x2="60" y2="-30" />
-      <line x1="60" y1="-30" x2="70" y2="10" />
-      <line x1="70" y1="10" x2="50" y2="50" />
-      <line x1="50" y1="50" x2="20" y2="70" />
-      <line x1="20" y1="70" x2="0" y2="30" />
-      <line x1="0" y1="30" x2="20" y2="-10" />
-      <line x1="20" y1="-10" x2="40" y2="-60" />
+      <!-- Inner synapse bridges -->
+      <line x1="-60" y1="-80" x2="-40" y2="-50" />
+      <line x1="-90" y1="-40" x2="-60" y2="-20" />
+      <line x1="-100" y1="0" x2="-65" y2="15" />
+      <line x1="-80" y1="50" x2="-45" y2="45" />
+      <line x1="-40" y1="80" x2="0" y2="20" />
+      <line x1="40" y1="80" x2="0" y2="20" />
+      <line x1="80" y1="50" x2="45" y2="45" />
+      <line x1="100" y1="0" x2="65" y2="15" />
+      <line x1="90" y1="-40" x2="60" y2="-20" />
+      <line x1="60" y1="-80" x2="40" y2="-50" />
       
-      <!-- Sub connections -->
-      <line x1="40" y1="-60" x2="20" y2="-10" />
-      <line x1="60" y1="-30" x2="20" y2="-10" />
-      <line x1="70" y1="10" x2="30" y2="20" />
-      <line x1="30" y1="20" x2="50" y2="50" />
-      <line x1="30" y1="20" x2="20" y2="70" />
-      <line x1="20" y1="-10" x2="30" y2="20" />
-
-      <!-- Cross hemisphere bridge -->
-      <line x1="-20" y1="-10" x2="20" y2="-10" stroke="#FFFFFF" stroke-opacity="0.4" />
-      <line x1="0" y1="30" x2="-30" y2="20" />
-      <line x1="0" y1="30" x2="30" y2="20" />
+      <!-- Cross hemisphere central trunk -->
+      <line x1="-40" y1="-50" x2="40" y2="-50" stroke="#FFFFFF" stroke-opacity="0.4" />
+      <line x1="-60" y1="-20" x2="60" y2="-20" stroke="#FFFFFF" stroke-opacity="0.4" />
+      <line x1="-65" y1="15" x2="65" y2="15" stroke="#FFFFFF" stroke-opacity="0.4" />
+      <line x1="0" y1="20" x2="0" y2="-30" />
+      <line x1="0" y1="-30" x2="-40" y2="-50" />
+      <line x1="0" y1="-30" x2="40" y2="-50" />
     </g>
 
-    <!-- Glowing Nodes (Pulsing) -->
-    <g class="pulse-node">
-      <!-- Outer Core Nodes -->
-      <circle cx="-40" cy="-60" r="5" fill="#8B5CF6" filter="url(#glow-purple)" />
-      <circle cx="-60" cy="-30" r="4" fill="#00D9FF" filter="url(#glow-blue)" />
-      <circle cx="-70" cy="10" r="5.5" fill="#00FF88" filter="url(#glow-green)" />
-      <circle cx="-50" cy="50" r="4" fill="#00D9FF" filter="url(#glow-blue)" />
-      <circle cx="-20" cy="70" r="5" fill="#8B5CF6" filter="url(#glow-purple)" />
+    <!-- Synaptic Nodes (Pulsing Glow) -->
+    <g>
+      <circle cx="-60" cy="-80" r="6.5" fill="#8B5CF6" filter="url(#glow-purple)">
+        <animate attributeName="r" values="6.5;8;6.5" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="-90" cy="-40" r="5" fill="#00D9FF" filter="url(#glow-blue)">
+        <animate attributeName="r" values="5;6.5;5" dur="1.8s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="-100" cy="0" r="7.5" fill="#00FF88" filter="url(#glow-green)">
+        <animate attributeName="r" values="7.5;9;7.5" dur="2.2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="-80" cy="50" r="5" fill="#00D9FF" filter="url(#glow-blue)" />
+      <circle cx="-40" cy="80" r="6" fill="#8B5CF6" filter="url(#glow-purple)" />
       
-      <circle cx="40" cy="-60" r="5" fill="#8B5CF6" filter="url(#glow-purple)" />
-      <circle cx="60" cy="-30" r="4" fill="#00D9FF" filter="url(#glow-blue)" />
-      <circle cx="70" cy="10" r="5.5" fill="#00FF88" filter="url(#glow-green)" />
-      <circle cx="50" cy="50" r="4" fill="#00D9FF" filter="url(#glow-blue)" />
-      <circle cx="20" cy="70" r="5" fill="#8B5CF6" filter="url(#glow-purple)" />
+      <circle cx="60" cy="-80" r="6.5" fill="#8B5CF6" filter="url(#glow-purple)">
+        <animate attributeName="r" values="6.5;8;6.5" dur="2.1s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="90" cy="-40" r="5" fill="#00D9FF" filter="url(#glow-blue)">
+        <animate attributeName="r" values="5;6.5;5" dur="1.9s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="100" cy="0" r="7.5" fill="#00FF88" filter="url(#glow-green)">
+        <animate attributeName="r" values="7.5;9;7.5" dur="2.3s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="80" cy="50" r="5" fill="#00D9FF" filter="url(#glow-blue)" />
+      <circle cx="40" cy="80" r="6" fill="#8B5CF6" filter="url(#glow-purple)" />
 
-      <!-- Inner nodes -->
-      <circle cx="-20" cy="-10" r="4" fill="#FFFFFF" />
-      <circle cx="20" cy="-10" r="4" fill="#FFFFFF" />
-      <circle cx="-30" cy="20" r="4" fill="#00D9FF" filter="url(#glow-blue)" />
-      <circle cx="30" cy="20" r="4" fill="#00FF88" filter="url(#glow-green)" />
+      <!-- Inner cerebral nodes -->
+      <circle cx="-40" cy="-50" r="4.5" fill="#FFFFFF" />
+      <circle cx="40" cy="-50" r="4.5" fill="#FFFFFF" />
+      <circle cx="-60" cy="-20" r="4" fill="#00D9FF" />
+      <circle cx="60" cy="-20" r="4" fill="#00D9FF" />
+      <circle cx="-65" cy="15" r="4" fill="#00FF88" />
+      <circle cx="65" cy="15" r="4" fill="#00FF88" />
       
-      <!-- Central Brain Core -->
-      <circle cx="0" cy="30" r="8" fill="#FFFFFF" filter="url(#glow-blue)" />
+      <!-- Core central pacemaker node -->
+      <circle cx="0" cy="20" r="10" fill="#FFFFFF" filter="url(#glow-blue)">
+        <animate attributeName="fill-opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="0" cy="-30" r="5.5" fill="#FFFFFF" />
     </g>
   </g>
 
-  <!-- Interactive/Floating AI Probe Sphere (Right Side) -->
-  <g class="floating-ai" transform="translate(980, 150)" fill="none" stroke-width="1.5">
-    <circle cx="0" cy="0" r="40" stroke="#8B5CF6" stroke-opacity="0.3" filter="url(#glow-purple)" />
-    <!-- Sphere grid lines -->
-    <ellipse cx="0" cy="0" rx="40" ry="15" stroke="#00D9FF" />
-    <ellipse cx="0" cy="0" rx="15" ry="40" stroke="#00FF88" />
-    <!-- Core -->
-    <circle cx="0" cy="0" r="10" fill="#00FF88" filter="url(#glow-green)" />
-    <!-- Data link lines -->
-    <line x1="-40" y1="0" x2="-80" y2="-20" stroke="#00D9FF" stroke-dasharray="3,3" />
-    <line x1="40" y1="0" x2="80" y2="20" stroke="#8B5CF6" stroke-dasharray="3,3" />
-    <circle cx="-80" cy="-20" r="3" fill="#00D9FF" />
-    <circle cx="80" cy="20" r="3" fill="#8B5CF6" />
-  </g>
-
-  <!-- Cinematic Scanline and Overlay Effects -->
-  <rect width="1200" height="350" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-opacity="0.4" />
-  <!-- Corner Tech Highlights -->
-  <path d="M 0,20 L 0,0 L 20,0" fill="none" stroke="#00FF88" stroke-width="3" />
-  <path d="M 1200,20 L 1200,0 L 1180,0" fill="none" stroke="#00FF88" stroke-width="3" />
-  <path d="M 0,330 L 0,350 L 20,350" fill="none" stroke="#00FF88" stroke-width="3" />
-  <path d="M 1200,330 L 1200,350 L 1180,350" fill="none" stroke="#00FF88" stroke-width="3" />
+  <!-- Top-Center Brand Overlay -->
+  <rect x="500" y="32" width="200" height="36" rx="18" fill="#07070a" stroke="#8B5CF6" stroke-width="1.5" />
+  <text x="600" y="55" font-family="'Orbitron', sans-serif" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">KATHIRVEL T</text>
+  <circle cx="520" cy="50" r="4" fill="#00FF88" filter="url(#glow-green)" />
+  <circle cx="680" cy="50" r="4" fill="#00D9FF" filter="url(#glow-blue)" />
 </svg>

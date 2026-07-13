@@ -24,7 +24,12 @@
 
 <br><br>
 
-## 👤 ABOUT ME
+<!-- Section 1: About Me -->
+<div align="center">
+  <img src="assets/header-about.svg" width="500" alt="About Me" />
+</div>
+
+<br>
 
 <table width="100%">
   <tr>
@@ -46,7 +51,12 @@
 
 <br><br>
 
-## 🛠️ TECH STACK
+<!-- Section 2: Tech Stack -->
+<div align="center">
+  <img src="assets/header-tech.svg" width="500" alt="Technical Stack" />
+</div>
+
+<br>
 
 <table>
   <tr>
@@ -86,7 +96,12 @@
 
 <br><br>
 
-## 📊 INTERACTIVE SKILL RADAR
+<!-- Section 3: Skill Radar -->
+<div align="center">
+  <img src="assets/header-radar.svg" width="500" alt="Skill Radar" />
+</div>
+
+<br>
 
 <div align="center">
   <img src="assets/skill-radar.svg" width="85%" alt="Kathirvel Skill Radar Chart" />
@@ -94,7 +109,12 @@
 
 <br><br>
 
-## 📁 3D STYLE PROJECT SHOWCASE
+<!-- Section 4: Projects -->
+<div align="center">
+  <img src="assets/header-projects.svg" width="500" alt="Project Showcase" />
+</div>
+
+<br>
 
 <div align="center">
   <!-- Project 1: Startup Incubator AI -->
@@ -119,7 +139,12 @@
 
 <br><br>
 
-## 📈 GITHUB CORE METRICS
+<!-- Section 5: Metrics -->
+<div align="center">
+  <img src="assets/header-metrics.svg" width="500" alt="System Metrics" />
+</div>
+
+<br>
 
 <table width="100%">
   <tr>
@@ -147,7 +172,10 @@
 
 <br><br>
 
-## 🏆 CORE ACHIEVEMENTS
+<!-- Section 6: Achievements -->
+<div align="center">
+  <h3>🏆 CORE ACHIEVEMENTS</h3>
+</div>
 
 <table>
   <tr>
@@ -165,7 +193,12 @@
 
 <br><br>
 
-## 💻 SYSTEM TERMINAL (INTERACTIVE)
+<!-- Section 7: Terminal -->
+<div align="center">
+  <img src="assets/header-terminal.svg" width="500" alt="Core Terminal" />
+</div>
+
+<br>
 
 <blockquote>
   <p>💡 <em>Click on the commands below to execute them and inspect the system diagnostics.</em></p>

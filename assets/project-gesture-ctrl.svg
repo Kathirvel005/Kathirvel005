@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 300" width="100%" height="300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 310" width="100%" height="310">
   <defs>
     <!-- Background Gradient -->
     <linearGradient id="card-bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#120524" stop-opacity="0.9" />
-      <stop offset="100%" stop-color="#05020c" stop-opacity="0.95" />
+      <stop offset="0%" stop-color="#140626" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#05020d" stop-opacity="0.95" />
     </linearGradient>
 
     <!-- Border Gradient -->
@@ -109,7 +109,7 @@
 
   <!-- Glowing Card Outline -->
   <g class="animated-card">
-    <rect x="5" y="5" width="540" height="290" rx="12" class="card-frame" />
+    <rect x="5" y="5" width="540" height="300" rx="12" class="card-frame" />
   </g>
 
   <!-- Card header status indicator -->
@@ -152,7 +152,7 @@
   </g>
 
   <!-- Action Buttons -->
-  <g transform="translate(25, 255)">
+  <g transform="translate(25, 260)">
     <g>
       <rect x="0" y="0" width="100" height="24" rx="4" class="button-rect" />
       <text x="50" y="15" class="button-text" text-anchor="middle">VIEW CODE</text>
@@ -222,10 +222,16 @@
       <circle cx="58" cy="-28" r="3.5" fill="#00D9FF" />
     </g>
 
-    <!-- Vectors annotations / distances -->
-    <path d="M-18,-52 L10,-65" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="2,2" />
-    <text x="-4" y="-62" font-family="'JetBrains Mono', monospace" font-size="7" fill="#FFFFFF" opacity="0.6">d = 34.2px</text>
+    <!-- Pinch Target Lock HUD ring -->
+    <circle cx="-18" cy="-52" r="10" fill="none" stroke="#00FF88" stroke-dasharray="2,2" filter="url(#glow-green)">
+      <animate attributeName="r" values="8;13;8" dur="1.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="-45" cy="-15" r="8" fill="none" stroke="#00D9FF" stroke-dasharray="2,2" />
 
-    <text x="10" y="70" font-family="'JetBrains Mono', monospace" font-size="8" fill="#00FF88" text-anchor="middle" letter-spacing="1">GESTURE: PINCH_SCROLL</text>
+    <!-- Vector annotations -->
+    <path d="M-18,-52 L-45,-15" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="1" stroke-dasharray="2,2" />
+    <text x="-31" y="-36" font-family="'JetBrains Mono', monospace" font-size="7" fill="#FFFFFF" opacity="0.8">d=34.2px</text>
+    
+    <text x="10" y="70" font-family="'JetBrains Mono', monospace" font-size="8" fill="#00FF88" text-anchor="middle" letter-spacing="1">GESTURE: SCROLL_UP_OK</text>
   </g>
 </svg>
