@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 60" width="100%" height="60">
+  <defs>
+    <!-- Fonts -->
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&amp;family=Orbitron:wght@600&amp;display=swap');
+      
+      .prefix {
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
+        font-size: 18px;
+        fill: #00D9FF;
+      }
+      
+      .role-text {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 18px;
+        fill: #00FF88;
+        font-weight: 600;
+        opacity: 0;
+        letter-spacing: 1px;
+      }
+
+      /* Blinking cursor */
+      .cursor {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 18px;
+        fill: #00FF88;
+        animation: blink 0.8s infinite;
+      }
+
+      /* Typewriter Mask Animations */
+      @keyframes blink {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
+
+      @keyframes type-role {
+        0% { opacity: 0; width: 0; }
+        5% { opacity: 1; width: 0; }
+        25%, 85% { opacity: 1; width: 400px; }
+        95%, 100% { opacity: 0; width: 0; }
+      }
+
+      /* Delay offsets for cycling through the 8 roles. Total cycle duration = 24 seconds */
+      .role-1 { animation: type-role 24s steps(30, end) infinite; animation-delay: 0s; }
+      .role-2 { animation: type-role 24s steps(30, end) infinite; animation-delay: 3s; }
+      .role-3 { animation: type-role 24s steps(30, end) infinite; animation-delay: 6s; }
+      .role-4 { animation: type-role 24s steps(30, end) infinite; animation-delay: 9s; }
+      .role-5 { animation: type-role 24s steps(30, end) infinite; animation-delay: 12s; }
+      .role-6 { animation: type-role 24s steps(30, end) infinite; animation-delay: 15s; }
+      .role-7 { animation: type-role 24s steps(30, end) infinite; animation-delay: 18s; }
+      .role-8 { animation: type-role 24s steps(30, end) infinite; animation-delay: 21s; }
+      
+      @keyframes cursor-move {
+        0%, 100% { transform: translateX(0); }
+        /* Shift cursor dynamically with the length of text. Since SVG is static, we can approximate the position for each word or keep it at the end. An elegant solution is to animate the cursor translation along with the active text layer. */
+      }
+    </style>
+
+    <!-- Clip Paths to reveal letters sequentially -->
+    <clipPath id="clip-reveal">
+      <rect x="0" y="0" width="400" height="60" />
+    </clipPath>
+  </defs>
+
+  <g transform="translate(10, 35)">
+    <!-- Terminal Prefix -->
+    <text x="0" y="0" class="prefix">KATHIRVEL_T:~$ <tspan fill="#FFFFFF">EXECUTE</tspan> --role=</text>
+    
+    <!-- Role Group -->
+    <g transform="translate(290, 0)">
+      <!-- We mask the texts to simulate the typing movement, or use CSS clip keyframes if possible, but opacity and delay works beautifully -->
+      <!-- Word 1: AI Developer -->
+      <g class="role-1">
+        <text x="0" y="0" class="role-text" opacity="1">AI Developer</text>
+        <rect x="0" y="-18" width="160" height="24" fill="#050505" style="animation: reveal-box 24s infinite; animation-delay: 0s; transform-origin: left;">
+          <animate attributeName="width" values="160;160;0;0;0;160;160" keyTimes="0;0.01;0.05;0.11;0.12;0.125;1" dur="24s" repeatCount="indefinite" />
+        </rect>
+        <text x="145" y="0" class="cursor" style="animation: blink 0.8s infinite;">_</text>
+      </g>
+
+      <!-- Word 2: Full Stack Engineer -->
+      <g class="role-2">
+        <text x="0" y="0" class="role-text" opacity="1">Full Stack Engineer</text>
+        <rect x="0" y="-18" width="220" height="24" fill="#050505">
+          <animate attributeName="width" values="220;220;0;0;0;220;220" keyTimes="0;0.125;0.17;0.23;0.24;0.245;1" dur="24s" repeatCount="indefinite" />
+        </rect>
+        <text x="210" y="0" class="cursor" style="animation: blink 0.8s infinite;">_</text>
+      </g>
+
+      <!-- Word 3: Java Developer -->
+      <g class="role-3">
+        <text x="0" y="0" class="role-text" opacity="1">Java Developer</text>
+        <rect x="0" y="-18" width="160" height="24" fill="#050505">
+          <animate attributeName="width" values="160;160;0;0;0;160;160" keyTimes="0;0.25;0.29;0.35;0.36;0.365;1" dur="24s" repeatCount="indefinite" />
+        </rect>
+        <text x="155" y="0" class="cursor" style="animation: blink 0.8s infinite;">_</text>
+      </g>
+
+      <!-- Word 4: Spring Boot -->
+      <g class="role-4">
+        <text x="0" y="0" class="role-text" opacity="1">Spring Boot</text>
+        <rect x="0" y="-18" width="140" height="24" fill="#050505">
+          <animate attributeName="width" values="140;140;0;0;0;140;140" keyTimes="0;0.375;0.41;0.47;0.48;0.485;1" dur="24s" repeatCount="indefinite" />
+        </rect>
+        <text x="125" y="0" class="cursor" style="animation: blink 0.8s infinite;">_</text>
+      </g>
+
+      <!-- Word 5: React Developer -->
+      <g class="role-5">
+        <text x="0" y="0" class="role-text" opacity="1">React Developer</text>
+        <rect x="0" y="-18" width="180" height="24" fill="#050505">
+          <animate attributeName="width" values="180;180;0;0;0;180;180" keyTimes="0;0.5;0.54;0.60;0.61;0.615;1" dur="24s" repeatCount="indefinite" />
+        </rect>
+        <text x="175" y="0" class="cursor" style="animation: blink 0.8s infinite;">_</text>
+      </g>
+
+      <!-- Word 6: Machine Learning Engineer -->
+      <g class="role-6">
+        <text x="0" y="0" class="role-text" opacity="1">ML Engineer</text>
+        <rect x="0" y="-18" width="140" height="24" fill="#050505">
+          <animate attributeName="width" values="140;140;0;0;0;140;140" keyTimes="0;0.625;0.66;0.72;0.73;0.735;1" dur="24s" repeatCount="indefinite" />
+        </rect>
+        <text x="125" y="0" class="cursor" style="animation: blink 0.8s infinite;">_</text>
+      </g>
+
+      <!-- Word 7: Open Source Contributor -->
+      <g class="role-7">
+        <text x="0" y="0" class="role-text" opacity="1">OS Contributor</text>
+        <rect x="0" y="-18" width="160" height="24" fill="#050505">
+          <animate attributeName="width" values="160;160;0;0;0;160;160" keyTimes="0;0.75;0.79;0.85;0.86;0.865;1" dur="24s" repeatCount="indefinite" />
+        </rect>
+        <text x="145" y="0" class="cursor" style="animation: blink 0.8s infinite;">_</text>
+      </g>
+
+      <!-- Word 8: Problem Solver -->
+      <g class="role-8">
+        <text x="0" y="0" class="role-text" opacity="1">Problem Solver</text>
+        <rect x="0" y="-18" width="160" height="24" fill="#050505">
+          <animate attributeName="width" values="160;160;0;0;0;160;160" keyTimes="0;0.875;0.91;0.97;0.98;0.985;1" dur="24s" repeatCount="indefinite" />
+        </rect>
+        <text x="155" y="0" class="cursor" style="animation: blink 0.8s infinite;">_</text>
+      </g>
+    </g>
+  </g>
+</svg>

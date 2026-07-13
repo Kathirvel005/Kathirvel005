@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="400">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="radar-bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0b0818" />
+      <stop offset="100%" stop-color="#050505" />
+    </radialGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Area Gradients -->
+    <linearGradient id="area-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00FF88" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#00D9FF" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.4" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap');
+    
+    .radar-grid {
+      fill: none;
+      stroke: #8B5CF6;
+      stroke-width: 1;
+      stroke-opacity: 0.25;
+    }
+    
+    .radar-axis {
+      stroke: #8B5CF6;
+      stroke-width: 1;
+      stroke-opacity: 0.3;
+      stroke-dasharray: 4, 4;
+    }
+
+    .label-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      fill: #FFFFFF;
+      letter-spacing: 0.5px;
+    }
+    
+    .label-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      fill: #00D9FF;
+    }
+
+    .radar-area {
+      stroke: #00FF88;
+      stroke-width: 3;
+      fill: url(#area-grad);
+      filter: url(#glow-green);
+      animation: pulse-area 4s ease-in-out infinite alternate;
+      transform-origin: 300px 200px;
+    }
+    
+    .radar-point {
+      fill: #FFFFFF;
+      stroke: #00D9FF;
+      stroke-width: 2;
+      filter: url(#glow-blue);
+      cursor: pointer;
+    }
+
+    @keyframes pulse-area {
+      0% { transform: scale(0.98); opacity: 0.9; }
+      100% { transform: scale(1.02); opacity: 1; }
+    }
+    
+    @keyframes radar-scan {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .scanner-line {
+      fill: none;
+      stroke: #00D9FF;
+      stroke-width: 1.5;
+      stroke-opacity: 0.4;
+      transform-origin: 300px 200px;
+      animation: radar-scan 10s linear infinite;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#radar-bg)" rx="8" stroke="#8B5CF6" stroke-opacity="0.3" stroke-width="1" />
+
+  <!-- Radar Grid Decagons -->
+  <!-- Level 5 (Max - R=150) -->
+  <polygon points="300,50 388.2,78.7 442.7,153.7 442.7,246.4 388.2,321.4 300,350 211.8,321.4 157.3,246.4 157.3,153.7 211.8,78.7" class="radar-grid" stroke-opacity="0.5" stroke-width="1.5" />
+  <!-- Level 4 (R=120) -->
+  <polygon points="300,80 370.5,102.9 414.1,162.9 414.1,237.1 370.5,297.1 300,320 229.5,297.1 185.9,237.1 185.9,162.9 229.5,102.9" class="radar-grid" />
+  <!-- Level 3 (R=90) -->
+  <polygon points="300,110 352.9,127.2 385.6,172.2 385.6,227.8 352.9,272.8 300,290 247.1,272.8 214.4,227.8 214.4,172.2 247.1,127.2" class="radar-grid" />
+  <!-- Level 2 (R=60) -->
+  <polygon points="300,140 335.3,151.5 357.1,181.5 357.1,218.5 335.3,248.5 300,260 264.7,248.5 242.9,218.5 242.9,181.5 264.7,151.5" class="radar-grid" />
+  <!-- Level 1 (R=30) -->
+  <polygon points="300,170 317.6,175.7 328.5,190.7 328.5,209.3 317.6,224.3 300,230 282.4,224.3 271.5,209.3 271.5,190.7 282.4,175.7" class="radar-grid" />
+
+  <!-- Radar Axes (Lines from center to vertices) -->
+  <g class="radar-axis">
+    <line x1="300" y1="200" x2="300" y2="50" />
+    <line x1="300" y1="200" x2="388.2" y2="78.7" />
+    <line x1="300" y1="200" x2="442.7" y2="153.7" />
+    <line x1="300" y1="200" x2="442.7" y2="246.4" />
+    <line x1="300" y1="200" x2="388.2" y2="321.4" />
+    <line x1="300" y1="200" x2="300" y2="350" />
+    <line x1="300" y1="200" x2="211.8" y2="321.4" />
+    <line x1="300" y1="200" x2="157.3" y2="246.4" />
+    <line x1="300" y1="200" x2="157.3" y2="153.7" />
+    <line x1="300" y1="200" x2="211.8" y2="78.7" />
+  </g>
+
+  <!-- Glowing Scanner Sweep -->
+  <line x1="300" y1="200" x2="300" y2="50" class="scanner-line" filter="url(#glow-blue)" />
+
+  <!-- SKILL DATA POLYGON -->
+  <!-- Calculated coordinates based on actual levels:
+    Java: 100% (R=150) -> (300, 50)
+    Python: 90% (R=135) -> (379.4, 90.8)
+    React: 80% (R=120) -> (414.1, 162.9)
+    Spring Boot: 90% (R=135) -> (428.4, 241.7)
+    Machine Learning: 85% (R=127.5) -> (374.9, 303.2)
+    OpenCV: 80% (R=120) -> (300, 320)
+    MySQL: 80% (R=120) -> (229.5, 297.1)
+    MongoDB: 75% (R=112.5) -> (193.0, 234.8)
+    Git: 85% (R=127.5) -> (178.7, 160.6)
+    Docker: 70% (R=105) -> (238.3, 115.1)
+  -->
+  <polygon points="300,50 379.4,90.8 414.1,162.9 428.4,241.7 374.9,303.2 300,320 229.5,297.1 193.0,234.8 178.7,160.6 238.3,115.1" class="radar-area" />
+
+  <!-- Skill Data Points (Circles) -->
+  <circle cx="300" cy="50" r="5" class="radar-point" />
+  <circle cx="379.4" cy="90.8" r="5" class="radar-point" />
+  <circle cx="414.1" cy="162.9" r="5" class="radar-point" />
+  <circle cx="428.4" cy="241.7" r="5" class="radar-point" />
+  <circle cx="374.9" cy="303.2" r="5" class="radar-point" />
+  <circle cx="300" cy="320" r="5" class="radar-point" />
+  <circle cx="229.5" cy="297.1" r="5" class="radar-point" />
+  <circle cx="193.0" cy="234.8" r="5" class="radar-point" />
+  <circle cx="178.7" cy="160.6" r="5" class="radar-point" />
+  <circle cx="238.3" cy="115.1" r="5" class="radar-point" />
+
+  <!-- Labels -->
+  <!-- Java -->
+  <text x="300" y="32" class="label-text" text-anchor="middle">JAVA <tspan class="label-val">[10/10]</tspan></text>
+  <!-- Python -->
+  <text x="405" y="75" class="label-text" text-anchor="start">PYTHON <tspan class="label-val">[9/10]</tspan></text>
+  <!-- React -->
+  <text x="458" y="157" class="label-text" text-anchor="start">REACT <tspan class="label-val">[8/10]</tspan></text>
+  <!-- Spring Boot -->
+  <text x="458" y="250" class="label-text" text-anchor="start">SPRING BOOT <tspan class="label-val">[9/10]</tspan></text>
+  <!-- Machine Learning -->
+  <text x="405" y="330" class="label-text" text-anchor="start">ML <tspan class="label-val">[8.5/10]</tspan></text>
+  <!-- OpenCV -->
+  <text x="300" y="370" class="label-text" text-anchor="middle">OPENCV <tspan class="label-val">[8/10]</tspan></text>
+  <!-- MySQL -->
+  <text x="195" y="330" class="label-text" text-anchor="end">MYSQL <tspan class="label-val">[8/10]</tspan></text>
+  <!-- MongoDB -->
+  <text x="142" y="250" class="label-text" text-anchor="end">MONGODB <tspan class="label-val">[7.5/10]</tspan></text>
+  <!-- Git -->
+  <text x="142" y="157" class="label-text" text-anchor="end">GIT <tspan class="label-val">[8.5/10]</tspan></text>
+  <!-- Docker -->
+  <text x="195" y="75" class="label-text" text-anchor="end">DOCKER <tspan class="label-val">[7/10]</tspan></text>
+
+  <!-- Core Label Center -->
+  <rect x="270" y="185" width="60" height="30" rx="4" fill="#0c0d12" stroke="#8B5CF6" stroke-opacity="0.4" />
+  <text x="300" y="203" font-family="'Orbitron', sans-serif" font-size="10" font-weight="700" fill="#00FF88" text-anchor="middle" filter="url(#glow-green)">SYS.SKILLS</text>
+</svg>

@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 300" width="100%" height="300">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="card-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#120524" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#05020c" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Border Gradient -->
+    <linearGradient id="card-border" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8B5CF6" />
+      <stop offset="50%" stop-color="#00D9FF" />
+      <stop offset="100%" stop-color="#00FF88" stroke-opacity="0.3" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap');
+    
+    .card-frame {
+      fill: url(#card-bg);
+      stroke: url(#card-border);
+      stroke-width: 1.5;
+    }
+
+    .title-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      fill: #FFFFFF;
+      letter-spacing: 1px;
+    }
+
+    .desc-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      fill: #a0aec0;
+    }
+
+    .feature-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      fill: #8B5CF6;
+    }
+
+    .badge-bg {
+      fill: #190a2a;
+      stroke: #8B5CF6;
+      stroke-width: 1;
+      stroke-opacity: 0.6;
+    }
+
+    .badge-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      fill: #00D9FF;
+      font-weight: 700;
+    }
+
+    /* Animations */
+    @keyframes float-hand {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(-1deg); }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { filter: drop-shadow(0 0 3px rgba(139, 92, 246, 0.4)); }
+      50% { filter: drop-shadow(0 0 12px rgba(0, 217, 255, 0.7)); }
+    }
+
+    .hand-model {
+      animation: float-hand 3.5s ease-in-out infinite;
+      transform-origin: 430px 155px;
+    }
+
+    .animated-card {
+      animation: pulse-glow 5s infinite ease-in-out;
+    }
+
+    .button-rect {
+      fill: #0c0d12;
+      stroke: #00FF88;
+      stroke-width: 1.5;
+    }
+
+    .button-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 10px;
+      fill: #00FF88;
+      font-weight: 700;
+    }
+  </style>
+
+  <!-- Glowing Card Outline -->
+  <g class="animated-card">
+    <rect x="5" y="5" width="540" height="290" rx="12" class="card-frame" />
+  </g>
+
+  <!-- Card header status indicator -->
+  <rect x="25" y="25" width="10" height="10" rx="2" fill="#8B5CF6" filter="url(#glow-purple)">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite" />
+  </rect>
+  <text x="42" y="34" font-family="'Orbitron', sans-serif" font-size="9" fill="#8B5CF6" font-weight="700" letter-spacing="1">PROJECT_03 // GESTURE_DAEMON</text>
+
+  <!-- Project Title -->
+  <text x="25" y="65" class="title-text">GESTURE CONTROL SYSTEM</text>
+
+  <!-- Description -->
+  <g transform="translate(25, 85)">
+    <text x="0" y="0" class="desc-text">Camera-based system controller that leverages human-</text>
+    <text x="0" y="16" class="desc-text">computer interaction. Translates real-time hand skeleton</text>
+    <text x="0" y="32" class="desc-text">tracking gestures into hardware actions and controls.</text>
+  </g>
+
+  <!-- Features Checklist -->
+  <g transform="translate(25, 145)">
+    <text x="0" y="0" class="feature-text">[✓] Real-time 21-node hand landmark recognition</text>
+    <text x="0" y="15" class="feature-text">[✓] MediaPipe ML skeletal frame extraction model</text>
+    <text x="0" y="30" class="feature-text">[✓] Hardware integration (Volume, brightness, mouse)</text>
+  </g>
+
+  <!-- Tech Badges -->
+  <g transform="translate(25, 195)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="55" height="18" rx="4" class="badge-bg" />
+      <text x="27.5" y="12" class="badge-text" text-anchor="middle">Python</text>
+    </g>
+    <g transform="translate(60, 0)">
+      <rect x="0" y="0" width="70" height="18" rx="4" class="badge-bg" />
+      <text x="35" y="12" class="badge-text" text-anchor="middle">MediaPipe</text>
+    </g>
+    <g transform="translate(135, 0)">
+      <rect x="0" y="0" width="55" height="18" rx="4" class="badge-bg" />
+      <text x="27.5" y="12" class="badge-text" text-anchor="middle">OpenCV</text>
+    </g>
+  </g>
+
+  <!-- Action Buttons -->
+  <g transform="translate(25, 255)">
+    <g>
+      <rect x="0" y="0" width="100" height="24" rx="4" class="button-rect" />
+      <text x="50" y="15" class="button-text" text-anchor="middle">VIEW CODE</text>
+    </g>
+    <g transform="translate(110, 0)">
+      <rect x="0" y="0" width="110" height="24" rx="4" class="button-rect" stroke="#8B5CF6" />
+      <text x="55" y="15" class="button-text" fill="#8B5CF6" text-anchor="middle">LAUNCH DEMO</text>
+    </g>
+  </g>
+
+  <!-- Right Side: 3D Holographic Hand Landmark skeleton -->
+  <g class="hand-model" transform="translate(420, 140)">
+    <!-- Concentric Target Reticles -->
+    <ellipse cx="10" cy="50" rx="60" ry="20" fill="none" stroke="#8B5CF6" stroke-opacity="0.2" />
+    <ellipse cx="10" cy="50" rx="40" ry="12" fill="none" stroke="#8B5CF6" stroke-opacity="0.1" />
+
+    <!-- Skeletal Joints / Links -->
+    <!-- Coordinates relative to wrist at (10, 50) -->
+    <g stroke="#00D9FF" stroke-width="1.5" stroke-opacity="0.8" fill="none">
+      <!-- Wrist to thumb -->
+      <path d="M 10,50 L -15,35 L -30,15 L -40,-2 L -45,-15" />
+      <!-- Wrist to index -->
+      <path d="M 10,50 L -5,15 L -12,-15 L -16,-38 L -18,-52" stroke="#00FF88" stroke-opacity="0.9" />
+      <!-- Wrist to middle -->
+      <path d="M 10,50 L 10,10 L 10,-22 L 10,-48 L 10,-65" />
+      <!-- Wrist to ring -->
+      <path d="M 10,50 L 22,12 L 28,-18 L 32,-42 L 35,-58" />
+      <!-- Wrist to pinky -->
+      <path d="M 10,50 L 35,20 L 45,0 L 52,-15 L 58,-28" />
+      <!-- Palm knuckle bridges -->
+      <path d="M -15,35 L -5,15 L 10,10 L 22,12 L 35,20" stroke-opacity="0.5" stroke-width="1" />
+    </g>
+
+    <!-- Glowing Nodes / Keypoints -->
+    <g fill="#FFFFFF">
+      <!-- Wrist -->
+      <circle cx="10" cy="50" r="5" fill="#8B5CF6" filter="url(#glow-purple)" />
+      
+      <!-- Thumb -->
+      <circle cx="-15" cy="35" r="3" />
+      <circle cx="-30" cy="15" r="3" />
+      <circle cx="-40" cy="-2" r="3" />
+      <circle cx="-45" cy="-15" r="3.5" fill="#00D9FF" />
+
+      <!-- Index -->
+      <circle cx="-5" cy="15" r="3" />
+      <circle cx="-12" cy="-15" r="3" />
+      <circle cx="-16" cy="-38" r="3" />
+      <circle cx="-18" cy="-52" r="3.5" fill="#00FF88" filter="url(#glow-blue)" />
+
+      <!-- Middle -->
+      <circle cx="10" cy="10" r="3" />
+      <circle cx="10" cy="-22" r="3" />
+      <circle cx="10" cy="-48" r="3" />
+      <circle cx="10" cy="-65" r="3.5" fill="#00D9FF" />
+
+      <!-- Ring -->
+      <circle cx="22" cy="12" r="3" />
+      <circle cx="28" cy="-18" r="3" />
+      <circle cx="32" cy="-42" r="3" />
+      <circle cx="35" cy="-58" r="3.5" fill="#00D9FF" />
+
+      <!-- Pinky -->
+      <circle cx="35" cy="20" r="3" />
+      <circle cx="45" cy="0" r="3" />
+      <circle cx="52" cy="-15" r="3" />
+      <circle cx="58" cy="-28" r="3.5" fill="#00D9FF" />
+    </g>
+
+    <!-- Vectors annotations / distances -->
+    <path d="M-18,-52 L10,-65" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="2,2" />
+    <text x="-4" y="-62" font-family="'JetBrains Mono', monospace" font-size="7" fill="#FFFFFF" opacity="0.6">d = 34.2px</text>
+
+    <text x="10" y="70" font-family="'JetBrains Mono', monospace" font-size="8" fill="#00FF88" text-anchor="middle" letter-spacing="1">GESTURE: PINCH_SCROLL</text>
+  </g>
+</svg>

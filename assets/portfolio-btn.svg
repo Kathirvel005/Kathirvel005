@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" width="320" height="60">
+  <defs>
+    <!-- Glow Filter -->
+    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- Gradient -->
+    <linearGradient id="btn-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00FF88" />
+      <stop offset="50%" stop-color="#00D9FF" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;display=swap');
+    
+    .btn-shape {
+      fill: #050505;
+      stroke: url(#btn-grad);
+      stroke-width: 2;
+      filter: url(#glow-green);
+      cursor: pointer;
+      animation: pulse-border 3s infinite alternate;
+    }
+    
+    .btn-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 13px;
+      font-weight: 900;
+      fill: #FFFFFF;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+    
+    .btn-arrow {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      fill: #00FF88;
+      font-weight: 900;
+      animation: arrow-move 1.5s infinite ease-in-out;
+    }
+
+    @keyframes pulse-border {
+      0% { filter: drop-shadow(0 0 2px rgba(0, 255, 136, 0.4)); stroke-width: 2; }
+      100% { filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.8)); stroke-width: 2.5; }
+    }
+
+    @keyframes arrow-move {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
+    }
+  </style>
+
+  <g>
+    <!-- Background Button Card -->
+    <rect x="5" y="5" width="310" height="50" rx="25" class="btn-shape" />
+    
+    <!-- Text and Icon -->
+    <g transform="translate(160, 34)">
+      <text class="btn-text" text-anchor="middle">LAUNCH 3D PORTFOLIO <tspan class="btn-arrow" fill="#00FF88"> &gt;&gt;</tspan></text>
+    </g>
+  </g>
+</svg>
