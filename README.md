@@ -1,91 +1,103 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=00ff00&height=200&section=header&text=Kathirvel%20T&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=00ff00&desc=AI%20&%20Data%20Science%20Enthusiast%20|%20Full-Stack%20Dev&descAlignY=60&descAlign=62" />
+  <!-- Gradient Red/Blue header with Spider-Verse theme -->
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=E23636,504CE8&height=250&section=header&text=Kathirvel%20T&fontSize=80&fontAlignY=35&fontColor=FFFFFF&desc=Anyone%20can%20wear%20the%20mask.&descAlignY=55&descAlign=50" />
 </div>
 
-<h3 align="center"> 
-  >_ INIT SEQUENCE INITIATED... <br>
-  >_ SYSTEM COMPROMISED... <br>
-  >_ ACCESS GRANTED. WELCOME TO MY REPOSITORY. 
-</h3>
+<p align="center">
+  <!-- Spider web typing animation -->
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Bangers&weight=600&size=30&pause=1000&color=E23636&center=true&vCenter=true&width=600&lines=Leaping+into+the+Multiverse...;Web-slinging+through+Code...;With+great+power+comes+great+algorithms!;Building+Next-Gen+AI+Solutions..." alt="Typing SVG" />
+  </a>
+</p>
+
+<!-- COMIC PANEL 1 & 2: Origin Story & Powers -->
+<table align="center" width="100%" style="border-collapse: collapse; border: 4px solid #E23636; background-color: #0D1117;">
+  <tr>
+    <td width="50%" align="center" valign="top" style="border: 4px solid #504CE8; padding: 20px;">
+      <h2 align="center"><span style="color:#E23636">🕷️</span> <code>[EARTH-42://WHOAMI]</code></h2>
+      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZtb3ZneXB5cnFzbnhxbWV6aHZ4enFzaWZxYm8zbTNsZnRnYnhyZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VjT1P18e3P52kXFmP0/giphy.gif" width="200" alt="Spider-verse Animation" style="border: 2px solid #504CE8; border-radius: 10px;" />
+      <br><br>
+      <p align="left" style="color: #c9d1d9;">
+        <b>🦸‍♂️ Hero Name:</b> Kathirvel T<br>
+        <b>🕸️ Class:</b> AI & Data Science Web-Slinger<br>
+        <b>🏙️ Base:</b> Madurai, India<br>
+        <b>🎯 Mission:</b> Developing innovative, real-world solutions through code and AI.<br>
+        <b>🧬 Origin:</b> B.Tech AI & DS, V S B Engineering College
+      </p>
+    </td>
+    <td width="50%" align="center" valign="top" style="border: 4px solid #E23636; padding: 20px;">
+      <h2 align="center"><span style="color:#04D8C4">🕸️</span> <code>[TECH_ARSENAL]</code></h2>
+      <br>
+      <!-- Programming Languages -->
+      <img src="https://img.shields.io/badge/Python-504CE8?style=flat-square&logo=python&logoColor=white" />
+      <img src="https://img.shields.io/badge/C++-E23636?style=flat-square&logo=c%2B%2B&logoColor=white" />
+      <img src="https://img.shields.io/badge/Java-F9027B?style=flat-square&logo=java&logoColor=white" />
+      <img src="https://img.shields.io/badge/JavaScript-04D8C4?style=flat-square&logo=javascript&logoColor=black" />
+      <br><br>
+      <!-- Web Dev -->
+      <img src="https://img.shields.io/badge/React-504CE8?style=flat-square&logo=react&logoColor=white" />
+      <img src="https://img.shields.io/badge/Node.js-E23636?style=flat-square&logo=nodedotjs&logoColor=white" />
+      <img src="https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=F9027B" />
+      <br><br>
+      <!-- Tools -->
+      <img src="https://img.shields.io/badge/HTML5-04D8C4?style=flat-square&logo=html5&logoColor=black" />
+      <img src="https://img.shields.io/badge/CSS3-504CE8?style=flat-square&logo=css3&logoColor=white" />
+      <img src="https://img.shields.io/badge/GIT-E23636?style=flat-square&logo=git&logoColor=white" />
+      <img src="https://img.shields.io/badge/Jupyter-F9027B?style=flat-square&logo=Jupyter&logoColor=white" />
+      <img src="https://img.shields.io/badge/Figma-04D8C4?style=flat-square&logo=figma&logoColor=black" />
+      <br><br>
+      <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXpmNWtudmVscmx2NzU1bnk5NHp3bzJtZG1mZ3B5dWVvNjFweHpqZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kEikVNEMvceWwWqR0O/giphy.gif" width="150" alt="Web Shooter Animation" style="border: 2px solid #E23636; border-radius: 10px;" />
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<!-- COMIC PANEL 3: Multiverse Missions -->
+<table align="center" width="100%" style="border-collapse: collapse; border: 4px solid #504CE8; background-color: #0D1117;">
+  <tr>
+    <td width="100%" align="center" style="border: 4px solid #E23636; padding: 20px;">
+      <h2 align="center">🌌 <code>[MULTIVERSE://MISSIONS]</code></h2>
+      <a href="https://github.com/Kathirvel005/Startup-incubator-ai"><img src="https://img.shields.io/badge/Startup_Incubator_AI-E23636?style=for-the-badge&logo=github&logoColor=white" /></a>
+      <a href="https://github.com/Kathirvel005/Face-Recognition_system"><img src="https://img.shields.io/badge/Face_Recognition-504CE8?style=for-the-badge&logo=github&logoColor=white" /></a>
+      <a href="https://github.com/Kathirvel005/Chatbot-Course-Assist"><img src="https://img.shields.io/badge/Chatbot_Assist-04D8C4?style=for-the-badge&logo=github&logoColor=black" /></a>
+      <a href="https://github.com/Kathirvel005/Neon-GestureStudio"><img src="https://img.shields.io/badge/Neon_GestureStudio-F9027B?style=for-the-badge&logo=github&logoColor=white" /></a>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<!-- COMIC PANEL 4 & 5: Stats and Streak -->
+<table align="center" width="100%" style="border-collapse: collapse; border: 4px solid #E23636; background-color: #0D1117;">
+  <tr>
+    <td width="50%" align="center" style="border: 4px solid #504CE8; padding: 10px;">
+      <h3 align="center">📊 <code>[ANOMALY_STATS]</code></h3>
+      <img src="https://github-readme-stats.vercel.app/api?username=Kathirvel005&show_icons=true&bg_color=0D1117&title_color=E23636&text_color=04D8C4&icon_color=F9027B&border_color=504CE8&hide_border=true" alt="Spider-Verse Stats" />
+    </td>
+    <td width="50%" align="center" style="border: 4px solid #E23636; padding: 10px;">
+      <h3 align="center">🔥 <code>[STREAK_METER]</code></h3>
+      <img src="https://github-readme-streak-stats.herokuapp.com/?user=Kathirvel005&background=0D1117&ring=F9027B&fire=E23636&currStreakNum=04D8C4&sideNums=04D8C4&currStreakLabel=F9027B&sideLabels=F9027B&dates=504CE8&border=504CE8&hide_border=true" alt="Spider-Verse Streak" />
+    </td>
+  </tr>
+</table>
 
 <br>
 
 <div align="center">
   <a href="https://kathirvel-portfolio-psi.vercel.app/" target="_blank">
-    <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio"/>
+    <img src="https://img.shields.io/badge/Web_Shooters_(Portfolio)-000000?style=for-the-badge&logo=vercel&logoColor=white&color=E23636" alt="Portfolio"/>
   </a>
   <a href="https://linkedin.com/in/kathirvel2407" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+    <img src="https://img.shields.io/badge/Spider_Sense_(LinkedIn)-504CE8?style=for-the-badge&logo=linkedin&logoColor=white&color=04D8C4" alt="LinkedIn"/>
   </a>
   <a href="mailto:kathir24005@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
+    <img src="https://img.shields.io/badge/Comms_(Email)-F9027B?style=for-the-badge&logo=gmail&logoColor=white&color=E23636" alt="Email"/>
   </a>
-</div>
-
----
-
-### 💻 `whoami`
-
-```json
-{
-  "name": "Kathirvel T",
-  "role": "Artificial Intelligence & Data Science Engineer",
-  "education": "B.Tech AI & DS, V S B Engineering College",
-  "location": "Madurai, India",
-  "passions": ["AI/ML", "Web Development", "Robotics", "Technology Research"],
-  "mission": "Developing innovative, real-world solutions through code and AI."
-}
-```
-
-### 🛠️ `tech_stack`
-
-<p align="center">
-  <!-- Programming Languages -->
-  <img src="https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" />
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
-  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
-  <br>
-  <!-- Web Dev -->
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
-  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
-  <br>
-  <!-- Tools -->
-  <img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white" />
-  <img src="https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white" />
-  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" />
-</p>
-
----
-
-### 🚀 `top_projects`
-
-| Project | Description | Link |
-|---------|-------------|------|
-| **Startup-incubator-Ai** | An AI-powered incubator platform for startups. | [View Repo](https://github.com/Kathirvel005/Startup-incubator-ai) |
-| **Face-Recognition_system** | Advanced facial recognition and authentication system. | [View Repo](https://github.com/Kathirvel005/Face-Recognition_system) |
-| **Chatbot-Course-Assist** | Intelligent chatbot designed to assist with course management. | [View Repo](https://github.com/Kathirvel005/Chatbot-Course-Assist) |
-| **Neon-GestureStudio** | Innovative gesture recognition interface and studio. | [View Repo](https://github.com/Kathirvel005/Neon-GestureStudio) |
-
----
-
-### 📊 `github_analytics`
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Kathirvel005&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=00ff00&text_color=c9d1d9&icon_color=00ff00" alt="Kathirvel's GitHub Stats" />
-  <br><br>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Kathirvel005&theme=radical&hide_border=true&background=0D1117&ring=00ff00&fire=00ff00&currStreakNum=c9d1d9&sideNums=c9d1d9&currStreakLabel=00ff00&sideLabels=00ff00&dates=c9d1d9" alt="Kathirvel's GitHub Streak" />
 </div>
 
 <br>
 
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=Kathirvel005&label=PROFILE+VIEWS&color=00ff00&style=for-the-badge" alt="Profile Views" />
-</div>
-
-<div align="center">
-  <i>"Talk is cheap. Show me the code." - Linus Torvalds</i>
+  <i>"It's a leap of faith. That's all it is, Miles. A leap of faith."</i>
 </div>
