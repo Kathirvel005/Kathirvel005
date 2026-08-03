@@ -33,7 +33,10 @@
 
 <table width="100%">
   <tr>
-    <td bgcolor="#050505" style="border: 1px solid #8B5CF6; border-radius: 8px; padding: 20px;">
+    <td width="35%" align="center" valign="middle" bgcolor="#050505" style="border: 1px solid #8B5CF6; border-radius: 8px; padding: 15px;">
+      <img src="assets/profile-hud.svg" width="100%" alt="Kathirvel Hologram HUD Profile" />
+    </td>
+    <td width="65%" valign="top" bgcolor="#050505" style="border: 1px solid #8B5CF6; border-radius: 8px; padding: 20px;">
       <h3 align="left">👤 PROFILE // Kathirvel T</h3>
       <p align="left">
         I am a <strong>B.Tech Artificial Intelligence and Data Science</strong> student at <strong>VSB Engineering College</strong> based in India. As a developer specializing in AI, Machine Learning, and Full Stack Backend architectures, I strive to design applications that seamlessly merge neural pipelines with robust enterprise codebases.
@@ -109,7 +112,35 @@
 
 <br><br>
 
-<!-- Section 4: Projects -->
+<!-- Section 4: Arcade Activity -->
+<div align="center">
+  <img src="assets/header-activity.svg" width="500" alt="Arcade Activity" />
+</div>
+
+<br>
+
+<table width="100%">
+  <tr>
+    <td bgcolor="#050505" style="border: 2px solid #00D9FF; border-radius: 8px; padding: 20px;" align="center">
+      <h3 align="center">🛸 COGNITIVE GRID SPACE SHOOTER</h3>
+      <p align="center">
+        Our system contribution grid translated into an active retro space defense program. Coding activity spawns alien invaders, and commits launch rocket defense systems.
+      </p>
+      <br>
+      <a href="https://github.com/Kathirvel005/Kathirvel005" target="_blank">
+        <img src="assets/space-shooter.gif" width="95%" alt="Kathirvel Contribution Space Shooter Game" />
+      </a>
+      <br><br>
+      <p align="center">
+        <sub>💡 <em>Note: The Space Shooter grid updates daily via GitHub Actions. If you are viewing this locally or before pushing, a sample game simulation is shown above.</em></sub>
+      </p>
+    </td>
+  </tr>
+</table>
+
+<br><br>
+
+<!-- Section 5: Projects -->
 <div align="center">
   <img src="assets/header-projects.svg" width="500" alt="Project Showcase" />
 </div>
@@ -139,7 +170,7 @@
 
 <br><br>
 
-<!-- Section 5: Metrics -->
+<!-- Section 6: Metrics -->
 <div align="center">
   <img src="assets/header-metrics.svg" width="500" alt="System Metrics" />
 </div>
@@ -172,7 +203,7 @@
 
 <br><br>
 
-<!-- Section 6: Achievements -->
+<!-- Section 7: Achievements -->
 <div align="center">
   <h3>🏆 CORE ACHIEVEMENTS</h3>
 </div>
@@ -193,7 +224,7 @@
 
 <br><br>
 
-<!-- Section 7: Terminal -->
+<!-- Section 8: Terminal -->
 <div align="center">
   <img src="assets/header-terminal.svg" width="500" alt="Core Terminal" />
 </div>

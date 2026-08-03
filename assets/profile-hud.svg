@@ -1,0 +1,304 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="500">
+  <defs>
+    <!-- Cyberpunk Gradients -->
+    <linearGradient id="neon-cyan-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00D9FF" />
+      <stop offset="100%" stop-color="#0891B2" />
+    </linearGradient>
+    <linearGradient id="neon-green-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00FF88" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="neon-pink-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF007F" />
+      <stop offset="100%" stop-color="#9D174D" />
+    </linearGradient>
+    <linearGradient id="hud-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#07070c" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#020204" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-pink" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Scanline Pattern -->
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="4" y2="0" stroke="#00D9FF" stroke-width="0.8" opacity="0.12" />
+    </pattern>
+
+    <!-- Circular Avatar Clip Path -->
+    <clipPath id="avatar-clip">
+      <circle cx="250" cy="250" r="115" />
+    </clipPath>
+
+    <!-- Hexagonal Mask (Optional styling) -->
+    <clipPath id="hex-clip">
+      <polygon points="250,110 370,180 370,320 250,390 130,320 130,180" />
+    </clipPath>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;display=swap');
+    
+    .hud-text {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      fill: #00FF88;
+      letter-spacing: 1px;
+    }
+    
+    .hud-text-cyan {
+      fill: #00D9FF;
+      filter: url(#glow-cyan);
+    }
+    
+    .hud-text-pink {
+      fill: #FF007F;
+      filter: url(#glow-pink);
+    }
+
+    /* Rotation Animations */
+    @keyframes spin-clockwise {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes spin-counter {
+      0% { transform: rotate(360deg); }
+      100% { transform: rotate(0deg); }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.95; }
+    }
+
+    @keyframes glitch-shift {
+      0%, 100% { transform: translate(0, 0) skew(0deg); }
+      20% { transform: translate(-2px, 1px) skew(-1deg); }
+      40% { transform: translate(2px, -1px) skew(2deg); }
+      60% { transform: translate(-1px, 2px) skew(-2deg); }
+      80% { transform: translate(1px, -2px) skew(1deg); }
+    }
+
+    @keyframes scanline-roll {
+      0% { transform: translateY(-500px); }
+      100% { transform: translateY(500px); }
+    }
+
+    @keyframes reticle-pulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.03); opacity: 1; }
+    }
+
+    /* Class applications */
+    .ring-slow-cw {
+      transform-origin: 250px 250px;
+      animation: spin-clockwise 25s linear infinite;
+    }
+    .ring-fast-ccw {
+      transform-origin: 250px 250px;
+      animation: spin-counter 12s linear infinite;
+    }
+    .ring-medium-cw {
+      transform-origin: 250px 250px;
+      animation: spin-clockwise 18s linear infinite;
+    }
+    .pulse-layer {
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+    .glitch-layer {
+      animation: glitch-shift 4s steps(2) infinite;
+    }
+    .reticle-lock {
+      transform-origin: 250px 250px;
+      animation: reticle-pulse 2s ease-in-out infinite;
+    }
+    .scrolling-scanline {
+      animation: scanline-roll 6s linear infinite;
+    }
+  </style>
+
+  <!-- Background Cyberpunk Grid Grid Deck -->
+  <rect width="500" height="500" rx="15" fill="url(#hud-bg)" stroke="#8B5CF6" stroke-width="2" stroke-opacity="0.4" />
+  
+  <!-- Subtle circular background grid -->
+  <circle cx="250" cy="250" r="220" fill="none" stroke="#8B5CF6" stroke-width="0.5" stroke-opacity="0.15" stroke-dasharray="10 15" />
+  <circle cx="250" cy="250" r="180" fill="none" stroke="#00D9FF" stroke-width="0.5" stroke-opacity="0.1" stroke-dasharray="5 5" />
+  <circle cx="250" cy="250" r="140" fill="none" stroke="#FF007F" stroke-width="0.5" stroke-opacity="0.1" />
+
+  <!-- Diagonal Tech Accents -->
+  <line x1="20" y1="20" x2="80" y2="20" stroke="#00D9FF" stroke-width="1.5" opacity="0.6" />
+  <line x1="20" y1="20" x2="20" y2="80" stroke="#00D9FF" stroke-width="1.5" opacity="0.6" />
+  <line x1="480" y1="20" x2="420" y2="20" stroke="#00D9FF" stroke-width="1.5" opacity="0.6" />
+  <line x1="480" y1="20" x2="480" y2="80" stroke="#00D9FF" stroke-width="1.5" opacity="0.6" />
+  <line x1="20" y1="480" x2="80" y2="480" stroke="#00D9FF" stroke-width="1.5" opacity="0.6" />
+  <line x1="20" y1="480" x2="20" y2="420" stroke="#00D9FF" stroke-width="1.5" opacity="0.6" />
+  <line x1="480" y1="480" x2="420" y2="480" stroke="#00D9FF" stroke-width="1.5" opacity="0.6" />
+  <line x1="480" y1="480" x2="480" y2="420" stroke="#00D9FF" stroke-width="1.5" opacity="0.6" />
+
+  <!-- Sub-frame grid lines -->
+  <line x1="40" y1="50" x2="460" y2="50" stroke="#8B5CF6" stroke-width="0.5" opacity="0.2" />
+  <line x1="40" y1="450" x2="460" y2="450" stroke="#8B5CF6" stroke-width="0.5" opacity="0.2" />
+  <line x1="50" y1="40" x2="50" y2="460" stroke="#8B5CF6" stroke-width="0.5" opacity="0.2" />
+  <line x1="450" y1="40" x2="450" y2="460" stroke="#8B5CF6" stroke-width="0.5" opacity="0.2" />
+
+  <!-- Hologram Video Scanlines Wrapper (embedded over entire hud) -->
+  <rect width="500" height="500" rx="15" fill="url(#scanlines)" pointer-events="none" />
+
+  <!-- Scrolling Hologram Distortion Bar -->
+  <g opacity="0.2">
+    <rect class="scrolling-scanline" x="5" y="0" width="490" height="15" fill="url(#neon-cyan-glow)" filter="url(#glow-cyan)" />
+  </g>
+
+  <!-- ==================== ROTATING HUD RINGS ==================== -->
+  
+  <!-- Outer Tech Ring with gaps -->
+  <circle class="ring-slow-cw" cx="250" cy="250" r="200" fill="none" stroke="url(#neon-cyan-glow)" stroke-width="2" stroke-opacity="0.8" stroke-dasharray="100 40 20 40 180 60" />
+  
+  <!-- Middle Dotted Ring -->
+  <circle class="ring-fast-ccw" cx="250" cy="250" r="185" fill="none" stroke="url(#neon-pink-glow)" stroke-width="1.5" stroke-opacity="0.6" stroke-dasharray="4 8" />
+  
+  <!-- Precision Scale Ring -->
+  <circle class="ring-medium-cw" cx="250" cy="250" r="170" fill="none" stroke="url(#neon-green-glow)" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="2 15 8 10 30 12" />
+
+  <!-- Tech notches and nodes inside rings -->
+  <g class="ring-slow-cw" opacity="0.7">
+    <circle cx="250" cy="50" r="4" fill="#00FF88" filter="url(#glow-green)" />
+    <circle cx="450" cy="250" r="4" fill="#00D9FF" filter="url(#glow-cyan)" />
+    <circle cx="250" cy="450" r="4" fill="#FF007F" filter="url(#glow-pink)" />
+    <circle cx="50" cy="250" r="4" fill="#00FF88" filter="url(#glow-green)" />
+  </g>
+
+  <!-- ==================== CENTRAL PROFILE IMAGE ==================== -->
+  <g class="reticle-lock">
+    <!-- Image outer border octagonal -->
+    <polygon points="250,115 345,155 385,250 345,345 250,385 155,345 115,250 155,155" fill="none" stroke="#FF007F" stroke-width="1.5" opacity="0.3" />
+    <polygon points="250,120 340,158 380,250 340,342 250,380 160,342 120,250 160,158" fill="none" stroke="#00D9FF" stroke-width="2" filter="url(#glow-cyan)" opacity="0.8" />
+    
+    <!-- Image Backing Glitch Glow -->
+    <circle class="pulse-layer" cx="250" cy="250" r="118" fill="none" stroke="#00FF88" stroke-width="3" filter="url(#glow-green)" opacity="0.8" />
+
+    <!-- Profile Image Clipping -->
+    <g>
+      <!-- Circular masking of PNG -->
+      <image href="profile.png" x="130" y="130" width="240" height="240" clip-path="url(#avatar-clip)" />
+    </g>
+
+    <!-- Overlay HUD Crosshair on Avatar -->
+    <g opacity="0.65">
+      <!-- Reticle target crosshairs -->
+      <line x1="250" y1="100" x2="250" y2="125" stroke="#FF007F" stroke-width="2" filter="url(#glow-pink)" />
+      <line x1="250" y1="375" x2="250" y2="400" stroke="#FF007F" stroke-width="2" filter="url(#glow-pink)" />
+      <line x1="100" y1="250" x2="125" y2="250" stroke="#FF007F" stroke-width="2" filter="url(#glow-pink)" />
+      <line x1="375" y1="250" x2="400" y2="250" stroke="#FF007F" stroke-width="2" filter="url(#glow-pink)" />
+      
+      <!-- Tiny center crosshair dot (semi-transparent) -->
+      <circle cx="250" cy="250" r="4" fill="none" stroke="#00FF88" stroke-width="1" opacity="0.5" />
+    </g>
+
+    <!-- Holographic Glitch lines over avatar -->
+    <g class="glitch-layer" opacity="0.4">
+      <line x1="135" y1="220" x2="365" y2="220" stroke="#00FF88" stroke-width="1" />
+      <line x1="135" y1="280" x2="365" y2="280" stroke="#00D9FF" stroke-width="1.5" />
+      <line x1="150" y1="180" x2="350" y2="180" stroke="#FF007F" stroke-width="1" />
+    </g>
+  </g>
+
+  <!-- ==================== HUD INTERACTIVE READOUTS ==================== -->
+
+  <!-- Top Diagnostics Block -->
+  <g transform="translate(100, 35)">
+    <rect x="-10" y="-12" width="320" height="20" rx="3" fill="#0c0d15" stroke="#00D9FF" stroke-width="0.8" opacity="0.8" />
+    <text class="hud-text hud-text-cyan" x="0" y="2">⚡ SYSTEM OWNER ACCESS: APPROVED // Clearance Level A</text>
+  </g>
+
+  <!-- Left HUD Panel Data -->
+  <g transform="translate(12, 130)">
+    <rect x="0" y="0" width="85" height="240" fill="#000" fill-opacity="0.4" stroke="#8B5CF6" stroke-width="0.5" stroke-opacity="0.3" />
+    
+    <text class="hud-text" x="5" y="20" font-size="9" fill="#8B5CF6">SYS.DIAGNOSTIC</text>
+    <line x1="5" y1="25" x2="80" y2="25" stroke="#8B5CF6" stroke-width="0.5" opacity="0.5" />
+
+    <text class="hud-text" x="5" y="45">SYNC: <tspan fill="#00FF88">98.4%</tspan></text>
+    <text class="hud-text" x="5" y="65">TEMP: <tspan fill="#00FF88">36.5°C</tspan></text>
+    <text class="hud-text" x="5" y="85">CORE: <tspan fill="#00FF88">ONLINE</tspan></text>
+    <text class="hud-text" x="5" y="105">MEM: <tspan fill="#00D9FF">1.2 TB/s</tspan></text>
+    
+    <text class="hud-text" x="5" y="135" font-size="9" fill="#8B5CF6">COGNITIVE.NET</text>
+    <line x1="5" y1="140" x2="80" y2="140" stroke="#8B5CF6" stroke-width="0.5" opacity="0.5" />
+
+    <text class="hud-text" x="5" y="160">CV_ENG: <tspan fill="#FF007F">94%</tspan></text>
+    <text class="hud-text" x="5" y="180">ML_VAL: <tspan fill="#FF007F">89%</tspan></text>
+    <text class="hud-text" x="5" y="200">SYS_SB: <tspan fill="#00D9FF">97%</tspan></text>
+    
+    <rect x="5" y="215" width="75" height="15" fill="#059669" fill-opacity="0.2" stroke="#00FF88" stroke-width="0.8" />
+    <text class="hud-text" x="12" y="226" font-size="9" fill="#00FF88">STATUS: SAFE</text>
+  </g>
+
+  <!-- Right HUD Panel Data -->
+  <g transform="translate(403, 130)">
+    <rect x="0" y="0" width="85" height="240" fill="#000" fill-opacity="0.4" stroke="#8B5CF6" stroke-width="0.5" stroke-opacity="0.3" />
+    
+    <text class="hud-text" x="5" y="20" font-size="9" fill="#8B5CF6">METRICS</text>
+    <line x1="5" y1="25" x2="80" y2="25" stroke="#8B5CF6" stroke-width="0.5" opacity="0.5" />
+
+    <text class="hud-text" x="5" y="45">IPS: <tspan fill="#00D9FF">14.2K</tspan></text>
+    <text class="hud-text" x="5" y="65">PING: <tspan fill="#00FF88">12ms</tspan></text>
+    <text class="hud-text" x="5" y="85">NODE: <tspan fill="#00FF88">IN-W1</tspan></text>
+    <text class="hud-text" x="5" y="105">PORT: <tspan fill="#FF007F">8080</tspan></text>
+    
+    <text class="hud-text" x="5" y="135" font-size="9" fill="#8B5CF6">NEURAL LOGS</text>
+    <line x1="5" y1="140" x2="80" y2="140" stroke="#8B5CF6" stroke-width="0.5" opacity="0.5" />
+
+    <text class="hud-text" x="5" y="160" font-size="8">E_LOC > IND</text>
+    <text class="hud-text" x="5" y="175" font-size="8">D_VER > v4.0</text>
+    <text class="hud-text" x="5" y="190" font-size="8">HCI > ACTIVE</text>
+    <text class="hud-text" x="5" y="205" font-size="8">AI_D > READY</text>
+    
+    <circle cx="15" cy="225" r="5" fill="#00FF88" class="pulse-layer" />
+    <text class="hud-text" x="26" y="229" font-size="9" fill="#00FF88">SYS.LIVE</text>
+  </g>
+
+  <!-- Bottom Details HUD Panel -->
+  <g transform="translate(110, 415)">
+    <text class="hud-text hud-text-pink" x="0" y="0" font-size="12">ID: KATHIRVEL T // CLASS: AI &amp; SYSTEM INTEGRATOR</text>
+    <text class="hud-text" x="0" y="18" fill="#ffffff" opacity="0.7">LOC: INDIA // ORG: VSB ENGINEERING COLLEGE</text>
+    <line x1="0" y1="28" x2="280" y2="28" stroke="#FF007F" stroke-width="1.5" stroke-opacity="0.8" />
+  </g>
+
+  <!-- Cyberpunk Barcode Graphic Graphic -->
+  <g transform="translate(325, 455)">
+    <rect x="0" y="0" width="2" height="15" fill="#00D9FF" />
+    <rect x="4" y="0" width="1" height="15" fill="#00D9FF" />
+    <rect x="7" y="0" width="3" height="15" fill="#00D9FF" />
+    <rect x="12" y="0" width="1" height="15" fill="#00D9FF" />
+    <rect x="15" y="0" width="4" height="15" fill="#00D9FF" />
+    <rect x="21" y="0" width="1" height="15" fill="#00D9FF" />
+    <rect x="24" y="0" width="2" height="15" fill="#00D9FF" />
+    <rect x="28" y="0" width="3" height="15" fill="#00D9FF" />
+    <rect x="33" y="0" width="1" height="15" fill="#00D9FF" />
+    <text class="hud-text" x="40" y="11" font-size="8" fill="#00D9FF">NEXUS-2407</text>
+  </g>
+
+</svg>

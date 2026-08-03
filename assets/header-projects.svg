@@ -53,10 +53,10 @@
   <rect x="15" y="20" width="6" height="20" rx="1" fill="#00FF88" filter="url(#glow)" />
   
   <!-- Section Title -->
-  <text x="32" y="35" class="sec-title">04 // PROJECT SHOWCASE</text>
+  <text x="32" y="35" class="sec-title">05 // PROJECT SHOWCASE</text>
   
   <!-- Right Side Metadata -->
-  <text x="470" y="34" class="sec-code" text-anchor="end">[ SEC_SYS: 04_DEPLOYMENTS ]</text>
+  <text x="470" y="34" class="sec-code" text-anchor="end">[ SEC_SYS: 05_DEPLOYMENTS ]</text>
   <circle cx="340" cy="30" r="3" class="pulse-dot" />
   
   <!-- Tech Borders/Brackets -->
