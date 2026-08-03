@@ -127,8 +127,9 @@
         Our system contribution grid translated into an active retro space defense program. Coding activity spawns alien invaders, and commits launch rocket defense systems.
       </p>
       <br>
+      <!-- Integrated Retro Arcade Cabinet SVG -->
       <a href="https://github.com/Kathirvel005/Kathirvel005" target="_blank">
-        <img src="assets/space-shooter.gif" width="95%" alt="Kathirvel Contribution Space Shooter Game" />
+        <img src="assets/arcade-cabinet.svg" width="95%" alt="Kathirvel Arcade Contribution Game Cabinet" />
       </a>
       <br><br>
       <p align="center">
@@ -337,14 +338,8 @@ GITHUB:    <a href="https://github.com/Kathirvel005" style="color: #00D9FF;">htt
 ## ⚙️ SYSTEM STATUS
 
 <div align="center">
-  <table>
-    <tr>
-      <td align="center" width="25%"><strong>CPU LOAD</strong><br><font color="#00FF88">100%</font></td>
-      <td align="center" width="25%"><strong>AI ENGINE</strong><br><font color="#00FF88">ONLINE</font></td>
-      <td align="center" width="25%"><strong>DEPLOYMENT</strong><br><font color="#00D9FF">SUCCESS</font></td>
-      <td align="center" width="25%"><strong>NEURAL NET</strong><br><font color="#8B5CF6">CONNECTED</font></td>
-    </tr>
-  </table>
+  <!-- Sci-Fi Diagnostics Dashboard SVG Widget -->
+  <img src="assets/diagnostics-dashboard.svg" width="100%" alt="Kathirvel Diagnostics HUD Status Console" />
 </div>
 
 <br>
