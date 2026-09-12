@@ -1,0 +1,42 @@
+name: Project Collaboration & Recruitment
+description: Inquire about project collaborations, hackathons, or job/internship opportunities.
+title: "[COLLAB]: "
+labels: ["collaboration", "inquiry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reaching out! Please fill out the details below so we can connect.
+  - type: input
+    id: contact_name
+    attributes:
+      label: Your Name / Organization
+      placeholder: e.g. Jane Doe, Tech Innovations Inc.
+    validations:
+      required: true
+  - type: dropdown
+    id: opportunity_type
+    attributes:
+      label: Collaboration Type
+      options:
+        - Full-Time / Internship Opportunity
+        - AI / Machine Learning Project Collaboration
+        - Open Source Development
+        - Hackathon Team
+        - Other Inquiry
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Project / Role Details
+      placeholder: Provide details on the role, technology stack, timeline, or project goals.
+    validations:
+      required: true
+  - type: input
+    id: contact_info
+    attributes:
+      label: Preferred Contact Method
+      placeholder: Email address or LinkedIn profile link
+    validations:
+      required: true
