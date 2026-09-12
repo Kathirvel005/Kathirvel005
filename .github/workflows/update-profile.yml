@@ -19,18 +19,13 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Validate Asset Integrity
-        run: |
-          echo "Auditing profile assets..."
-          for file in assets/*.svg assets/projects/*.svg; do
-            if [ -f "$file" ]; then
-              echo "Valid: $file"
-            else
-              echo "Missing asset: $file"
-              exit 1
-            fi
-          done
-          echo "All SVG assets verified."
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Execute Full Profile & Asset Telemetry Audit
+        run: node scripts/audit-assets.js
 
       - name: Update Profile Telemetry Log
         run: |
