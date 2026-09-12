@@ -197,7 +197,7 @@
     </linearGradient>
     <polygon points="390,210 470,210 450,90 410,90" fill="url(#glow-ray)" />
     
-    <!-- Floating Flowchart & Server Racks in 3D perspective -->
+    <!-- Floating Flowchart &amp; Server Racks in 3D perspective -->
     <g stroke="#00FF88" stroke-width="1.2" fill="none" transform="translate(430, 115)">
       <!-- Server 1 (Database representation) -->
       <g transform="translate(-25, -25)" stroke="#8B5CF6">
