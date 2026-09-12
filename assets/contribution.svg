@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="arcadeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050813" />
+      <stop offset="50%" stop-color="#0a1024" />
+      <stop offset="100%" stop-color="#04060c" />
+    </linearGradient>
+
+    <linearGradient id="arcadeScan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(0, 240, 255, 0)" />
+      <stop offset="50%" stop-color="rgba(0, 255, 136, 0.25)" />
+      <stop offset="100%" stop-color="rgba(0, 240, 255, 0)" />
+    </linearGradient>
+
+    <filter id="glowArcade" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes scanArcade {
+      0% { transform: translateY(-30px); opacity: 0; }
+      20% { opacity: 0.8; }
+      80% { opacity: 0.8; }
+      100% { transform: translateY(270px); opacity: 0; }
+    }
+    @keyframes blinkShip {
+      0%, 100% { opacity: 1; transform: translateY(0px); }
+      50% { opacity: 0.7; transform: translateY(-3px); }
+    }
+    @keyframes pulseEnergy {
+      0%, 100% { width: 140px; }
+      50% { width: 175px; }
+    }
+    .arcade-scanner { animation: scanArcade 5s infinite ease-in-out; }
+    .defender-ship { animation: blinkShip 2s infinite ease-in-out; }
+    .energy-bar { animation: pulseEnergy 3s infinite ease-in-out; }
+  </style>
+
+  <!-- Arcade Outer Frame -->
+  <rect width="1000" height="260" rx="12" fill="url(#arcadeBg)" stroke="rgba(0, 255, 136, 0.3)" stroke-width="1.5" />
+  
+  <!-- Corner Brackets -->
+  <path d="M 2 20 L 2 2 L 20 2" fill="none" stroke="#00ff88" stroke-width="3" />
+  <path d="M 980 2 L 998 2 L 998 20" fill="none" stroke="#00ff88" stroke-width="3" />
+  <path d="M 2 240 L 2 258 L 20 258" fill="none" stroke="#00f0ff" stroke-width="3" />
+  <path d="M 980 258 L 998 258 L 998 240" fill="none" stroke="#00f0ff" stroke-width="3" />
+
+  <!-- Scanning Overlay Beam -->
+  <rect class="arcade-scanner" x="4" y="0" width="992" height="30" fill="url(#arcadeScan)" pointer-events="none" />
+
+  <!-- Top Title Bar -->
+  <g transform="translate(30, 24)">
+    <text x="0" y="14" fill="#00ff88" font-family="'Courier New', monospace" font-size="12" font-weight="800" letter-spacing="2">
+      // CONTRIBUTION ARCADE :: [ CODE • PLAY • REPEAT ]
+    </text>
+    <text x="940" y="14" text-anchor="end" fill="rgba(255, 255, 255, 0.45)" font-family="'Courier New', monospace" font-size="10">
+      "Every commit is another iteration."
+    </text>
+  </g>
+
+  <!-- Left: Arcade HUD Telemetry Gauges -->
+  <g transform="translate(35, 60)">
+    <!-- Metric 1: COMMIT ENERGY -->
+    <g transform="translate(0, 0)">
+      <text x="0" y="14" fill="#94a3b8" font-family="'Courier New', monospace" font-size="10" font-weight="700">COMMIT ENERGY</text>
+      <rect x="0" y="22" width="220" height="14" rx="3" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(0, 255, 136, 0.3)" stroke-width="1" />
+      <rect class="energy-bar" x="2" y="24" width="160" height="10" rx="2" fill="#00ff88" filter="url(#glowArcade)" />
+      <text x="228" y="34" fill="#00ff88" font-family="'Courier New', monospace" font-size="10" font-weight="800">92%</text>
+    </g>
+
+    <!-- Metric 2: CONTRIBUTION LEVEL -->
+    <g transform="translate(0, 48)">
+      <text x="0" y="14" fill="#94a3b8" font-family="'Courier New', monospace" font-size="10" font-weight="700">CONTRIBUTION LEVEL</text>
+      <rect x="0" y="22" width="220" height="14" rx="3" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1" />
+      <rect x="2" y="24" width="185" height="10" rx="2" fill="#00f0ff" />
+      <text x="228" y="34" fill="#00f0ff" font-family="'Courier New', monospace" font-size="10" font-weight="800">LVL 42</text>
+    </g>
+
+    <!-- Metric 3: SYSTEM XP -->
+    <g transform="translate(0, 96)">
+      <text x="0" y="14" fill="#94a3b8" font-family="'Courier New', monospace" font-size="10" font-weight="700">SYSTEM XP</text>
+      <rect x="0" y="22" width="220" height="14" rx="3" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1" />
+      <rect x="2" y="24" width="170" height="10" rx="2" fill="#a855f7" />
+      <text x="228" y="34" fill="#c084fc" font-family="'Courier New', monospace" font-size="10" font-weight="800">28,450</text>
+    </g>
+
+    <!-- Metric 4: CODE ACTIVITY STATUS -->
+    <g transform="translate(0, 144)">
+      <rect width="260" height="22" rx="4" fill="rgba(0, 255, 136, 0.08)" stroke="rgba(0, 255, 136, 0.25)" stroke-width="1" />
+      <circle cx="12" cy="11" r="3.5" fill="#00ff88" />
+      <text x="24" y="15" fill="#00ff88" font-family="'Courier New', monospace" font-size="10" font-weight="700">
+        STATUS: CONTINUOUS REPOSITORY DEPLOYMENT
+      </text>
+    </g>
+  </g>
+
+  <!-- Right: Futuristic Pixel / Arcade Grid Field Simulation -->
+  <g transform="translate(340, 60)">
+    <rect width="620" height="165" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" />
+
+    <!-- Arcade Grid matrix blocks simulation -->
+    <!-- 24 columns x 6 rows of activity blocks -->
+    <g transform="translate(18, 16)">
+      <!-- Row 1 -->
+      <rect x="0" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+      <rect x="24" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+      <rect x="48" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+      <rect x="72" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+      <rect x="96" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+      <rect x="120" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+      <rect x="144" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+      <rect x="168" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+      <rect x="192" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+      <rect x="216" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+      <rect x="240" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.4)" />
+      <rect x="264" y="0" width="16" height="16" rx="2" fill="#00f0ff" />
+      <rect x="288" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.7)" />
+      <rect x="312" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.4)" />
+      <rect x="336" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.15)" />
+      <rect x="360" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+      <rect x="384" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+      <rect x="408" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+      <rect x="432" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+      <rect x="456" y="0" width="16" height="16" rx="2" fill="#00f0ff" />
+      <rect x="480" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.7)" />
+      <rect x="504" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.4)" />
+      <rect x="528" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.15)" />
+      <rect x="552" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+
+      <!-- Row 2 -->
+      <g transform="translate(0, 22)">
+        <rect x="0" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+        <rect x="24" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="48" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="72" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+        <rect x="96" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+        <rect x="120" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+        <rect x="144" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="168" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+        <rect x="192" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+        <rect x="216" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.4)" />
+        <rect x="240" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.7)" />
+        <rect x="264" y="0" width="16" height="16" rx="2" fill="#00f0ff" />
+        <rect x="288" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.4)" />
+        <rect x="312" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="336" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+        <rect x="360" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+        <rect x="384" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+        <rect x="408" y="0" width="16" height="16" rx="2" fill="#00f0ff" />
+        <rect x="432" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.7)" />
+        <rect x="456" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.4)" />
+        <rect x="480" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.15)" />
+        <rect x="504" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="528" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+        <rect x="552" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+      </g>
+
+      <!-- Row 3 -->
+      <g transform="translate(0, 44)">
+        <rect x="0" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+        <rect x="24" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+        <rect x="48" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="72" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="96" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+        <rect x="120" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+        <rect x="144" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+        <rect x="168" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="192" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+        <rect x="216" y="0" width="16" height="16" rx="2" fill="#00f0ff" />
+        <rect x="240" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.7)" />
+        <rect x="264" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.4)" />
+        <rect x="288" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.15)" />
+        <rect x="312" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="336" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+        <rect x="360" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+        <rect x="384" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+        <rect x="408" y="0" width="16" height="16" rx="2" fill="#00f0ff" />
+        <rect x="432" y="0" width="16" height="16" rx="2" fill="#00f0ff" />
+        <rect x="456" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.7)" />
+        <rect x="480" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.4)" />
+        <rect x="504" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.15)" />
+        <rect x="528" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="552" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+      </g>
+
+      <!-- Row 4 -->
+      <g transform="translate(0, 66)">
+        <rect x="0" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+        <rect x="24" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="48" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+        <rect x="72" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+        <rect x="96" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+        <rect x="120" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="144" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+        <rect x="168" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+        <rect x="192" y="0" width="16" height="16" rx="2" fill="#00f0ff" />
+        <rect x="216" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.7)" />
+        <rect x="240" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.4)" />
+        <rect x="264" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.15)" />
+        <rect x="288" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="312" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="336" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+        <rect x="360" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.15)" />
+        <rect x="384" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.4)" />
+        <rect x="408" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+        <rect x="432" y="0" width="16" height="16" rx="2" fill="rgba(0, 255, 136, 0.7)" />
+        <rect x="456" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.4)" />
+        <rect x="480" y="0" width="16" height="16" rx="2" fill="#00f0ff" />
+        <rect x="504" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.7)" />
+        <rect x="528" y="0" width="16" height="16" rx="2" fill="rgba(0, 240, 255, 0.15)" />
+        <rect x="552" y="0" width="16" height="16" rx="2" fill="#00ff88" />
+      </g>
+    </g>
+
+    <!-- Defender Ship Animation Symbol -->
+    <g class="defender-ship" transform="translate(565, 120)">
+      <polygon points="12,0 0,18 24,18" fill="#00f0ff" filter="url(#glowArcade)" />
+      <circle cx="12" cy="12" r="2.5" fill="#ffffff" />
+    </g>
+
+    <!-- Bottom Caption inside arcade box -->
+    <text x="310" y="146" text-anchor="middle" fill="rgba(255, 255, 255, 0.4)" font-family="'Courier New', monospace" font-size="9" letter-spacing="1">
+      ARCADE GRID SIMULATION // SYNCED COMMITS DRIVE RETRO DEFENDER MISSILES
+    </text>
+  </g>
+</svg>

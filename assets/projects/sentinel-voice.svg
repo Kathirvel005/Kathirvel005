@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060914" />
+      <stop offset="50%" stop-color="#0b1226" />
+      <stop offset="100%" stop-color="#050812" />
+    </linearGradient>
+
+    <linearGradient id="glowBorder4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+
+    <filter id="glowCard4" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes cardScan4 {
+      0% { transform: translateY(-10px); opacity: 0; }
+      20% { opacity: 0.6; }
+      80% { opacity: 0.6; }
+      100% { transform: translateY(260px); opacity: 0; }
+    }
+    .scanner-line4 { animation: cardScan4 5.2s infinite ease-in-out; }
+  </style>
+
+  <rect width="500" height="250" rx="10" fill="url(#cardBg4)" stroke="url(#glowBorder4)" stroke-width="1.5" />
+
+  <!-- Corner Brackets -->
+  <path d="M 2 16 L 2 2 L 16 2" fill="none" stroke="#00f0ff" stroke-width="3" />
+  <path d="M 484 2 L 498 2 L 498 16" fill="none" stroke="#00f0ff" stroke-width="3" />
+  <path d="M 2 234 L 2 248 L 16 248" fill="none" stroke="#ec4899" stroke-width="3" />
+  <path d="M 484 248 L 498 248 L 498 234" fill="none" stroke="#ec4899" stroke-width="3" />
+
+  <line class="scanner-line4" x1="2" y1="0" x2="498" y2="0" stroke="rgba(236, 72, 153, 0.4)" stroke-width="1.5" />
+
+  <g transform="translate(20, 20)">
+    <text x="0" y="12" fill="#38bdf8" font-family="'Courier New', monospace" font-size="10" font-weight="700" letter-spacing="1">
+      PRJ-04 // EDGE_VOICE_ASSISTANT
+    </text>
+
+    <g transform="translate(340, -4)">
+      <rect width="120" height="20" rx="4" fill="rgba(0, 240, 255, 0.12)" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1" />
+      <circle cx="10" cy="10" r="3" fill="#00f0ff" />
+      <text x="20" y="13" fill="#00f0ff" font-family="'Courier New', monospace" font-size="9" font-weight="700">ACTIVE [EDGE]</text>
+    </g>
+  </g>
+
+  <text x="20" y="70" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="800" letter-spacing="0.5">
+    SENTINEL-VOICE
+  </text>
+
+  <text x="20" y="100" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500">
+    Edge AI offline conversational voice automation assistant.
+  </text>
+  <text x="20" y="120" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">
+    Handles speech synthesis, NLP command parsing &amp; desktop process automation.
+  </text>
+
+  <g transform="translate(20, 145)">
+    <rect x="0" y="0" width="60" height="20" rx="3" fill="rgba(0, 240, 255, 0.1)" stroke="rgba(0, 240, 255, 0.3)" stroke-width="0.8" />
+    <text x="30" y="13" text-anchor="middle" fill="#00f0ff" font-family="'Courier New', monospace" font-size="9" font-weight="700">Python</text>
+
+    <rect x="68" y="0" width="125" height="20" rx="3" fill="rgba(236, 72, 153, 0.1)" stroke="rgba(236, 72, 153, 0.3)" stroke-width="0.8" />
+    <text x="130" y="13" text-anchor="middle" fill="#f472b6" font-family="'Courier New', monospace" font-size="9" font-weight="700">SpeechRecognition</text>
+
+    <rect x="201" y="0" width="65" height="20" rx="3" fill="rgba(139, 92, 246, 0.1)" stroke="rgba(139, 92, 246, 0.3)" stroke-width="0.8" />
+    <text x="233" y="13" text-anchor="middle" fill="#c084fc" font-family="'Courier New', monospace" font-size="9" font-weight="700">pyttsx3</text>
+
+    <rect x="274" y="0" width="70" height="20" rx="3" fill="rgba(0, 255, 136, 0.1)" stroke="rgba(0, 255, 136, 0.3)" stroke-width="0.8" />
+    <text x="309" y="13" text-anchor="middle" fill="#00ff88" font-family="'Courier New', monospace" font-size="9" font-weight="700">VOSK Edge</text>
+  </g>
+
+  <g transform="translate(20, 195)">
+    <line x1="0" y1="0" x2="460" y2="0" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <g transform="translate(0, 12)">
+      <rect width="150" height="28" rx="5" fill="rgba(0, 240, 255, 0.12)" stroke="#00f0ff" stroke-width="1" />
+      <text x="75" y="18" text-anchor="middle" fill="#00f0ff" font-family="'Courier New', monospace" font-size="10" font-weight="800">
+        OPEN SOURCE ➔
+      </text>
+    </g>
+    <text x="460" y="30" text-anchor="end" fill="rgba(255, 255, 255, 0.4)" font-family="'Courier New', monospace" font-size="10">
+      OFFLINE SECURE // ZERO CLOUD LEAK
+    </text>
+  </g>
+</svg>

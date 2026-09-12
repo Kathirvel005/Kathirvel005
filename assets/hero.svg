@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05070e" />
+      <stop offset="50%" stop-color="#090d1a" />
+      <stop offset="100%" stop-color="#04060b" />
+    </linearGradient>
+
+    <linearGradient id="cyanPurpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#00ff88" />
+    </linearGradient>
+
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#00f0ff" />
+      <stop offset="100%" stop-color="#c4b5fd" />
+    </linearGradient>
+
+    <linearGradient id="scanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(0, 240, 255, 0)" />
+      <stop offset="50%" stop-color="rgba(0, 240, 255, 0.25)" />
+      <stop offset="100%" stop-color="rgba(0, 240, 255, 0)" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glowPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Cyber Grid Pattern -->
+    <pattern id="cyberGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(0, 240, 255, 0.05)" stroke-width="1" />
+      <circle cx="0" cy="0" r="1" fill="rgba(0, 240, 255, 0.2)" />
+    </pattern>
+  </defs>
+
+  <style>
+    @keyframes rotateClockwise {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes rotateCounter {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+    @keyframes pulseCore {
+      0%, 100% { transform: scale(1); opacity: 0.85; filter: drop-shadow(0 0 8px #00f0ff); }
+      50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 20px #8b5cf6); }
+    }
+    @keyframes scanMove {
+      0% { transform: translateY(-50px); opacity: 0; }
+      20% { opacity: 0.8; }
+      80% { opacity: 0.8; }
+      100% { transform: translateY(370px); opacity: 0; }
+    }
+    @keyframes cursorBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes floatParticle {
+      0%, 100% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-10px) translateX(6px); }
+    }
+    @keyframes pulseStatus {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    @keyframes dataFade {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+
+    .core-ring-1 { transform-origin: 850px 180px; animation: rotateClockwise 24s linear infinite; }
+    .core-ring-2 { transform-origin: 850px 180px; animation: rotateCounter 18s linear infinite; }
+    .core-ring-3 { transform-origin: 850px 180px; animation: rotateClockwise 12s linear infinite; }
+    .core-center { transform-origin: 850px 180px; animation: pulseCore 4s ease-in-out infinite; }
+    .scan-beam { animation: scanMove 7s ease-in-out infinite; }
+    .cursor { animation: cursorBlink 1s infinite; }
+    .particle { animation: floatParticle 6s ease-in-out infinite; }
+    .status-dot { transform-origin: 45px 38px; animation: pulseStatus 2s infinite; }
+    .data-text { animation: dataFade 4s ease-in-out infinite; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1000" height="360" rx="14" fill="url(#bgGrad)" />
+  <rect width="1000" height="360" rx="14" fill="url(#cyberGrid)" />
+
+  <!-- Outer Border &amp; Sci-Fi Corner Brackets -->
+  <rect x="2" y="2" width="996" height="356" rx="12" fill="none" stroke="rgba(0, 240, 255, 0.25)" stroke-width="1.5" />
+  
+  <!-- Corner Accents -->
+  <path d="M 2 30 L 2 2 L 30 2" fill="none" stroke="#00f0ff" stroke-width="3" />
+  <path d="M 970 2 L 998 2 L 998 30" fill="none" stroke="#00f0ff" stroke-width="3" />
+  <path d="M 2 330 L 2 358 L 30 358" fill="none" stroke="#8b5cf6" stroke-width="3" />
+  <path d="M 970 358 L 998 358 L 998 330" fill="none" stroke="#8b5cf6" stroke-width="3" />
+
+  <!-- Scanning Beam Effect -->
+  <rect class="scan-beam" x="4" y="0" width="992" height="40" fill="url(#scanGrad)" pointer-events="none" />
+
+  <!-- Top Status Badge -->
+  <g transform="translate(40, 26)">
+    <rect width="320" height="26" rx="13" fill="rgba(0, 240, 255, 0.08)" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1" />
+    <circle class="status-dot" cx="14" cy="13" r="4.5" fill="#00ff88" filter="url(#glowCyan)" />
+    <text x="28" y="17" fill="#00ff88" font-family="'Courier New', monospace" font-size="11" font-weight="700" letter-spacing="1.5">SYS.DIAGNOSTICS // ONLINE [VER 4.2]</text>
+  </g>
+
+  <!-- Header Coordinate Stamp -->
+  <text x="960" y="42" text-anchor="end" fill="rgba(255, 255, 255, 0.4)" font-family="'Courier New', monospace" font-size="10" letter-spacing="1">
+    LAT: 11.0168° N, 76.9558° E // CLEARANCE: ALPHA-01
+  </text>
+
+  <!-- Main Identity Content -->
+  <g transform="translate(45, 95)">
+    <!-- Subtitle Category Tag -->
+    <text x="0" y="15" fill="#00f0ff" font-family="'Courier New', monospace" font-size="12" font-weight="700" letter-spacing="3" filter="url(#glowCyan)">
+      // AUTONOMOUS AI ARCHITECT &amp; SYSTEMS ENGINEER
+    </text>
+
+    <!-- Name Headline -->
+    <text x="0" y="70" fill="url(#textGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="52" font-weight="900" letter-spacing="2">
+      KATHIRVEL T.
+    </text>
+
+    <!-- Primary Specializations -->
+    <text x="0" y="105" fill="#e2e8f0" font-family="'Courier New', monospace" font-size="14" font-weight="700" letter-spacing="2">
+      AI DEVELOPER <tspan fill="#00f0ff">•</tspan> PYTHON <tspan fill="#00f0ff">•</tspan> JAVA <tspan fill="#8b5cf6">•</tspan> MACHINE LEARNING <tspan fill="#8b5cf6">•</tspan> COMPUTER VISION
+    </text>
+
+    <!-- Dynamic Terminal Subtext -->
+    <g transform="translate(0, 130)">
+      <rect width="640" height="38" rx="6" fill="rgba(13, 17, 23, 0.85)" stroke="rgba(139, 92, 246, 0.35)" stroke-width="1" />
+      <text x="14" y="24" fill="#a78bfa" font-family="'Courier New', monospace" font-size="13" font-weight="600">
+        <tspan fill="#00ff88">&gt;</tspan> architecting neural pipelines, autonomous vision &amp; modern software<tspan class="cursor" fill="#00f0ff">_</tspan>
+      </text>
+    </g>
+
+    <!-- Telemetry Chips -->
+    <g transform="translate(0, 192)">
+      <!-- Chip 1 -->
+      <rect x="0" y="0" width="130" height="24" rx="4" fill="rgba(0, 240, 255, 0.08)" stroke="rgba(0, 240, 255, 0.25)" stroke-width="1" />
+      <text x="10" y="16" fill="#00f0ff" font-family="'Courier New', monospace" font-size="10" font-weight="700">CORE: PYTORCH / TF</text>
+
+      <!-- Chip 2 -->
+      <rect x="140" y="0" width="130" height="24" rx="4" fill="rgba(139, 92, 246, 0.08)" stroke="rgba(139, 92, 246, 0.25)" stroke-width="1" />
+      <text x="150" y="16" fill="#c084fc" font-family="'Courier New', monospace" font-size="10" font-weight="700">VISION: OPENCV/MP</text>
+
+      <!-- Chip 3 -->
+      <rect x="280" y="0" width="130" height="24" rx="4" fill="rgba(0, 255, 136, 0.08)" stroke="rgba(0, 255, 136, 0.25)" stroke-width="1" />
+      <text x="290" y="16" fill="#00ff88" font-family="'Courier New', monospace" font-size="10" font-weight="700">BACKEND: SPRING/NODE</text>
+
+      <!-- Chip 4 -->
+      <rect x="420" y="0" width="125" height="24" rx="4" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" />
+      <text x="430" y="16" fill="#e2e8f0" font-family="'Courier New', monospace" font-size="10" font-weight="700">ROBOTICS: EMBEDDED</text>
+    </g>
+  </g>
+
+  <!-- RIGHT SIDE: Animated AI Neural Core &amp; Concentric Reticles -->
+  <!-- Outer Decorative Ring -->
+  <circle cx="850" cy="180" r="130" fill="none" stroke="rgba(0, 240, 255, 0.1)" stroke-width="1" stroke-dasharray="4 8" />
+  
+  <!-- Rotating Reticle 1 (Large Outer) -->
+  <g class="core-ring-1">
+    <circle cx="850" cy="180" r="115" fill="none" stroke="rgba(0, 240, 255, 0.35)" stroke-width="1.5" stroke-dasharray="25 15 5 15" />
+    <circle cx="850" cy="65" r="3" fill="#00f0ff" filter="url(#glowCyan)" />
+    <circle cx="850" cy="295" r="3" fill="#00f0ff" filter="url(#glowCyan)" />
+  </g>
+
+  <!-- Rotating Reticle 2 (Middle Reverse) -->
+  <g class="core-ring-2">
+    <circle cx="850" cy="180" r="90" fill="none" stroke="rgba(139, 92, 246, 0.45)" stroke-width="2" stroke-dasharray="40 10 10 10" />
+    <circle cx="760" cy="180" r="2.5" fill="#a855f7" filter="url(#glowPurple)" />
+    <circle cx="940" cy="180" r="2.5" fill="#a855f7" filter="url(#glowPurple)" />
+  </g>
+
+  <!-- Rotating Reticle 3 (Inner Fast) -->
+  <g class="core-ring-3">
+    <circle cx="850" cy="180" r="65" fill="none" stroke="rgba(0, 255, 136, 0.4)" stroke-width="1.5" stroke-dasharray="12 8" />
+    <polygon points="850,120 855,128 845,128" fill="#00ff88" />
+    <polygon points="850,240 855,232 845,232" fill="#00ff88" />
+  </g>
+
+  <!-- Floating Neural Nodes &amp; Synapses -->
+  <g>
+    <line x1="850" y1="180" x2="780" y2="130" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1" />
+    <line x1="850" y1="180" x2="920" y2="120" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1" />
+    <line x1="850" y1="180" x2="800" y2="230" stroke="rgba(0, 255, 136, 0.3)" stroke-width="1" />
+    <line x1="850" y1="180" x2="910" y2="240" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1" />
+    
+    <circle class="particle" cx="780" cy="130" r="4" fill="#00f0ff" filter="url(#glowCyan)" />
+    <circle class="particle" cx="920" cy="120" r="3.5" fill="#a855f7" filter="url(#glowPurple)" />
+    <circle class="particle" cx="800" cy="230" r="3" fill="#00ff88" />
+    <circle class="particle" cx="910" cy="240" r="3.5" fill="#00f0ff" />
+  </g>
+
+  <!-- Pulsating Center Core -->
+  <g class="core-center">
+    <circle cx="850" cy="180" r="38" fill="rgba(139, 92, 246, 0.15)" stroke="#00f0ff" stroke-width="1.5" />
+    <circle cx="850" cy="180" r="24" fill="rgba(0, 240, 255, 0.25)" stroke="#8b5cf6" stroke-width="1" />
+    <polygon points="850,165 863,188 837,188" fill="none" stroke="#00ff88" stroke-width="1.5" />
+    <circle cx="850" cy="180" r="6" fill="#ffffff" filter="url(#glowCyan)" />
+  </g>
+
+  <!-- AI Core Label -->
+  <text x="850" y="328" text-anchor="middle" fill="#00f0ff" font-family="'Courier New', monospace" font-size="11" font-weight="700" letter-spacing="2">
+    AI CORE :: ACTIVE
+  </text>
+  <text class="data-text" x="850" y="342" text-anchor="middle" fill="rgba(255, 255, 255, 0.4)" font-family="'Courier New', monospace" font-size="9" letter-spacing="1">
+    60 FPS // 100% SYNCHRONIZED
+  </text>
+
+  <!-- Bottom HUD Ticker Line -->
+  <line x1="40" y1="330" x2="680" y2="330" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" stroke-dasharray="6 4" />
+  <text x="40" y="344" fill="rgba(255, 255, 255, 0.45)" font-family="'Courier New', monospace" font-size="10" letter-spacing="1">
+    NODE: KATHIRVEL-005 // REPO: KATHIRVEL005 // LOC: TAMIL NADU, INDIA
+  </text>
+</svg>

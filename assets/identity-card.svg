@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080d1a" />
+      <stop offset="50%" stop-color="#0e1529" />
+      <stop offset="100%" stop-color="#060913" />
+    </linearGradient>
+
+    <linearGradient id="idBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="35%" stop-color="#8b5cf6" />
+      <stop offset="70%" stop-color="#00ff88" />
+      <stop offset="100%" stop-color="#00f0ff" />
+    </linearGradient>
+
+    <filter id="glowId" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <pattern id="idGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(0, 240, 255, 0.04)" stroke-width="0.8" />
+    </pattern>
+  </defs>
+
+  <style>
+    @keyframes borderPulse {
+      0%, 100% { stroke-opacity: 0.4; }
+      50% { stroke-opacity: 0.9; }
+    }
+    @keyframes chipGlow {
+      0%, 100% { filter: drop-shadow(0 0 4px #00f0ff); }
+      50% { filter: drop-shadow(0 0 12px #8b5cf6); }
+    }
+    @keyframes idScan {
+      0% { transform: translateY(-20px); opacity: 0; }
+      15% { opacity: 0.6; }
+      85% { opacity: 0.6; }
+      100% { transform: translateY(320px); opacity: 0; }
+    }
+
+    .border-stroke { animation: borderPulse 4s infinite ease-in-out; }
+    .chip { animation: chipGlow 3s infinite ease-in-out; }
+    .scanner { animation: idScan 6s infinite ease-in-out; }
+  </style>
+
+  <!-- Card Background -->
+  <rect width="1000" height="320" rx="14" fill="url(#cardBg)" />
+  <rect width="1000" height="320" rx="14" fill="url(#idGrid)" />
+
+  <!-- Animated Border -->
+  <rect class="border-stroke" x="2" y="2" width="996" height="316" rx="12" fill="none" stroke="url(#idBorderGrad)" stroke-width="2" />
+
+  <!-- Corner Brackets -->
+  <path d="M 2 24 L 2 2 L 24 2" fill="none" stroke="#00f0ff" stroke-width="3.5" />
+  <path d="M 976 2 L 998 2 L 998 24" fill="none" stroke="#00f0ff" stroke-width="3.5" />
+  <path d="M 2 296 L 2 318 L 24 318" fill="none" stroke="#8b5cf6" stroke-width="3.5" />
+  <path d="M 976 318 L 998 318 L 998 296" fill="none" stroke="#8b5cf6" stroke-width="3.5" />
+
+  <!-- Scan Line -->
+  <line class="scanner" x1="4" y1="0" x2="996" y2="0" stroke="rgba(0, 240, 255, 0.4)" stroke-width="2" />
+
+  <!-- Left Holographic ID Emblem Section -->
+  <g transform="translate(45, 45)">
+    <!-- Avatar Box with Hexagon Reticle -->
+    <rect width="180" height="230" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1.5" />
+    
+    <!-- Cybernetic Silhouette / Core Graphics -->
+    <circle cx="90" cy="85" r="45" fill="none" stroke="rgba(139, 92, 246, 0.4)" stroke-width="2" stroke-dasharray="6 4" />
+    <circle class="chip" cx="90" cy="85" r="28" fill="rgba(0, 240, 255, 0.15)" stroke="#00f0ff" stroke-width="2" />
+    <text x="90" y="93" text-anchor="middle" fill="#00f0ff" font-family="'Courier New', monospace" font-size="22" font-weight="900">KT</text>
+
+    <!-- Barcode &amp; Serial -->
+    <g transform="translate(25, 150)">
+      <line x1="0" y1="0" x2="0" y2="28" stroke="#00f0ff" stroke-width="2" />
+      <line x1="5" y1="0" x2="5" y2="28" stroke="#00f0ff" stroke-width="1" />
+      <line x1="9" y1="0" x2="9" y2="28" stroke="#00f0ff" stroke-width="3" />
+      <line x1="16" y1="0" x2="16" y2="28" stroke="#00f0ff" stroke-width="1" />
+      <line x1="22" y1="0" x2="22" y2="28" stroke="#00f0ff" stroke-width="2" />
+      <line x1="28" y1="0" x2="28" y2="28" stroke="#00f0ff" stroke-width="4" />
+      <line x1="36" y1="0" x2="36" y2="28" stroke="#00f0ff" stroke-width="1" />
+      <line x1="42" y1="0" x2="42" y2="28" stroke="#00f0ff" stroke-width="2" />
+      <line x1="48" y1="0" x2="48" y2="28" stroke="#00f0ff" stroke-width="1" />
+      <line x1="55" y1="0" x2="55" y2="28" stroke="#00f0ff" stroke-width="3" />
+      <line x1="62" y1="0" x2="62" y2="28" stroke="#00f0ff" stroke-width="1" />
+      <line x1="68" y1="0" x2="68" y2="28" stroke="#00f0ff" stroke-width="2" />
+      <line x1="74" y1="0" x2="74" y2="28" stroke="#00f0ff" stroke-width="1" />
+      <line x1="82" y1="0" x2="82" y2="28" stroke="#00f0ff" stroke-width="4" />
+      <line x1="92" y1="0" x2="92" y2="28" stroke="#00f0ff" stroke-width="2" />
+      <line x1="100" y1="0" x2="100" y2="28" stroke="#00f0ff" stroke-width="1" />
+      <line x1="108" y1="0" x2="108" y2="28" stroke="#00f0ff" stroke-width="3" />
+      <line x1="116" y1="0" x2="116" y2="28" stroke="#00f0ff" stroke-width="1" />
+      <line x1="124" y1="0" x2="124" y2="28" stroke="#00f0ff" stroke-width="2" />
+      <line x1="130" y1="0" x2="130" y2="28" stroke="#00f0ff" stroke-width="2" />
+    </g>
+
+    <text x="90" y="195" text-anchor="middle" fill="rgba(255, 255, 255, 0.4)" font-family="'Courier New', monospace" font-size="9" letter-spacing="1.5">
+      UID // 2024-AI-DS-005
+    </text>
+
+    <rect x="25" y="202" width="130" height="18" rx="4" fill="rgba(0, 255, 136, 0.12)" stroke="rgba(0, 255, 136, 0.3)" stroke-width="1" />
+    <text x="90" y="215" text-anchor="middle" fill="#00ff88" font-family="'Courier New', monospace" font-size="9" font-weight="700" letter-spacing="1">
+      VERIFIED DEVELOPER
+    </text>
+  </g>
+
+  <!-- Right Side: Developer Identity Specs -->
+  <g transform="translate(260, 45)">
+    <!-- Header Top Bar -->
+    <text x="0" y="18" fill="#00f0ff" font-family="'Courier New', monospace" font-size="11" font-weight="700" letter-spacing="2" filter="url(#glowId)">
+      [// AI DEVELOPER IDENTITY RECORD // SPECIFICATION]
+    </text>
+
+    <!-- Field 1: NAME -->
+    <g transform="translate(0, 36)">
+      <text x="0" y="15" fill="#94a3b8" font-family="'Courier New', monospace" font-size="11" font-weight="700" letter-spacing="1">NAME:</text>
+      <text x="140" y="15" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="800" letter-spacing="1">Kathirvel T</text>
+    </g>
+
+    <!-- Field 2: ROLE -->
+    <g transform="translate(0, 68)">
+      <text x="0" y="15" fill="#94a3b8" font-family="'Courier New', monospace" font-size="11" font-weight="700" letter-spacing="1">ROLE:</text>
+      <text x="140" y="15" fill="#00f0ff" font-family="'Courier New', monospace" font-size="14" font-weight="700">AI Developer &amp; Systems Engineer</text>
+    </g>
+
+    <!-- Field 3: SPECIALIZATION -->
+    <g transform="translate(0, 100)">
+      <text x="0" y="15" fill="#94a3b8" font-family="'Courier New', monospace" font-size="11" font-weight="700" letter-spacing="1">SPECIALIZATION:</text>
+      <text x="140" y="15" fill="#c084fc" font-family="'Courier New', monospace" font-size="13" font-weight="700">B.Tech Artificial Intelligence &amp; Data Science</text>
+    </g>
+
+    <!-- Field 4: FOCUS -->
+    <g transform="translate(0, 132)">
+      <text x="0" y="15" fill="#94a3b8" font-family="'Courier New', monospace" font-size="11" font-weight="700" letter-spacing="1">FOCUS:</text>
+      <g transform="translate(140, 0)">
+        <rect x="0" y="0" width="112" height="22" rx="4" fill="rgba(0, 240, 255, 0.1)" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1" />
+        <text x="56" y="15" text-anchor="middle" fill="#00f0ff" font-family="'Courier New', monospace" font-size="10" font-weight="700">Machine Learning</text>
+
+        <rect x="118" y="0" width="112" height="22" rx="4" fill="rgba(139, 92, 246, 0.1)" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1" />
+        <text x="174" y="15" text-anchor="middle" fill="#c084fc" font-family="'Courier New', monospace" font-size="10" font-weight="700">Computer Vision</text>
+
+        <rect x="236" y="0" width="105" height="22" rx="4" fill="rgba(0, 255, 136, 0.1)" stroke="rgba(0, 255, 136, 0.3)" stroke-width="1" />
+        <text x="288" y="15" text-anchor="middle" fill="#00ff88" font-family="'Courier New', monospace" font-size="10" font-weight="700">Generative AI</text>
+
+        <rect x="347" y="0" width="110" height="22" rx="4" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1" />
+        <text x="402" y="15" text-anchor="middle" fill="#f1f5f9" font-family="'Courier New', monospace" font-size="10" font-weight="700">Full Stack (Java)</text>
+
+        <rect x="463" y="0" width="85" height="22" rx="4" fill="rgba(245, 158, 11, 0.1)" stroke="rgba(245, 158, 11, 0.3)" stroke-width="1" />
+        <text x="505" y="15" text-anchor="middle" fill="#f59e0b" font-family="'Courier New', monospace" font-size="10" font-weight="700">Robotics</text>
+      </g>
+    </g>
+
+    <!-- Field 5: CURRENT MISSION -->
+    <g transform="translate(0, 172)">
+      <text x="0" y="15" fill="#94a3b8" font-family="'Courier New', monospace" font-size="11" font-weight="700" letter-spacing="1">CURRENT MISSION:</text>
+      <rect x="140" y="-3" width="550" height="34" rx="5" fill="rgba(13, 17, 23, 0.9)" stroke="rgba(0, 255, 136, 0.3)" stroke-width="1" />
+      <text x="155" y="19" fill="#00ff88" font-family="'Courier New', monospace" font-size="12" font-weight="600">
+        &gt; Build intelligent systems that solve real-world problems.
+      </text>
+    </g>
+
+    <!-- Footnote details -->
+    <g transform="translate(0, 222)">
+      <line x1="0" y1="0" x2="690" y2="0" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+      <text x="0" y="18" fill="rgba(255, 255, 255, 0.45)" font-family="'Courier New', monospace" font-size="10">
+        INSTITUTION: VSB ENGINEERING COLLEGE // LOCATION: TAMIL NADU, INDIA // CLEARANCE: UNRESTRICTED
+      </text>
+    </g>
+  </g>
+</svg>

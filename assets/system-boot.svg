@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bootBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060913" />
+      <stop offset="100%" stop-color="#0b1020" />
+    </linearGradient>
+
+    <filter id="glowGreen" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glowCyanBoot" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes lineFade1 { 0% { opacity: 0; } 10%, 100% { opacity: 1; } }
+    @keyframes lineFade2 { 0%, 12% { opacity: 0; } 22%, 100% { opacity: 1; } }
+    @keyframes lineFade3 { 0%, 24% { opacity: 0; } 34%, 100% { opacity: 1; } }
+    @keyframes lineFade4 { 0%, 36% { opacity: 0; } 46%, 100% { opacity: 1; } }
+    @keyframes lineFade5 { 0%, 48% { opacity: 0; } 58%, 100% { opacity: 1; } }
+    @keyframes lineFade6 { 0%, 60% { opacity: 0; } 70%, 100% { opacity: 1; } }
+    @keyframes lineFade7 { 0%, 72% { opacity: 0; } 82%, 100% { opacity: 1; } }
+    @keyframes lineFade8 { 0%, 84% { opacity: 0; } 94%, 100% { opacity: 1; } }
+
+    @keyframes pulseOverall {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.75; }
+    }
+
+    .l1 { animation: lineFade1 8s infinite ease-in-out; }
+    .l2 { animation: lineFade2 8s infinite ease-in-out; }
+    .l3 { animation: lineFade3 8s infinite ease-in-out; }
+    .l4 { animation: lineFade4 8s infinite ease-in-out; }
+    .l5 { animation: lineFade5 8s infinite ease-in-out; }
+    .l6 { animation: lineFade6 8s infinite ease-in-out; }
+    .l7 { animation: lineFade7 8s infinite ease-in-out; }
+    .l8 { animation: lineFade8 8s infinite ease-in-out; }
+
+    .overall-badge { animation: pulseOverall 2.5s infinite ease-in-out; }
+  </style>
+
+  <!-- Container Box -->
+  <rect width="1000" height="240" rx="10" fill="url(#bootBg)" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1.5" />
+  
+  <!-- Terminal Title Bar -->
+  <rect width="1000" height="34" rx="10" fill="rgba(255, 255, 255, 0.03)" />
+  <rect y="24" width="1000" height="10" fill="rgba(255, 255, 255, 0.03)" />
+  <line x1="0" y1="34" x2="1000" y2="34" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1" />
+
+  <!-- Window Dots -->
+  <circle cx="22" cy="17" r="4.5" fill="#ef4444" opacity="0.8" />
+  <circle cx="38" cy="17" r="4.5" fill="#eab308" opacity="0.8" />
+  <circle cx="54" cy="17" r="4.5" fill="#10b981" opacity="0.8" />
+
+  <!-- Window Title -->
+  <text x="500" y="22" text-anchor="middle" fill="#94a3b8" font-family="'Courier New', monospace" font-size="11" font-weight="600" letter-spacing="1">
+    BOOT_SEQUENCE // KATHIRVEL_OS_KERNEL_INIT
+  </text>
+
+  <!-- Left Boot Sequence Column -->
+  <g transform="translate(30, 55)">
+    <!-- Line 1: Header -->
+    <g class="l1">
+      <text x="0" y="16" fill="#00f0ff" font-family="'Courier New', monospace" font-size="12" font-weight="700" letter-spacing="1">
+        [INIT] &gt;&gt; SYSTEM INITIALIZING... 0x7FFE94C2
+      </text>
+    </g>
+
+    <!-- Line 2 -->
+    <g class="l2" transform="translate(0, 34)">
+      <text x="0" y="14" fill="#94a3b8" font-family="'Courier New', monospace" font-size="12" font-weight="600">
+        NEURAL CORE .................
+      </text>
+      <text x="210" y="14" fill="#00ff88" font-family="'Courier New', monospace" font-size="12" font-weight="700" filter="url(#glowGreen)">
+        [ ONLINE ]
+      </text>
+    </g>
+
+    <!-- Line 3 -->
+    <g class="l3" transform="translate(0, 64)">
+      <text x="0" y="14" fill="#94a3b8" font-family="'Courier New', monospace" font-size="12" font-weight="600">
+        COMPUTER VISION .............
+      </text>
+      <text x="210" y="14" fill="#00ff88" font-family="'Courier New', monospace" font-size="12" font-weight="700" filter="url(#glowGreen)">
+        [ ONLINE ]
+      </text>
+    </g>
+
+    <!-- Line 4 -->
+    <g class="l4" transform="translate(0, 94)">
+      <text x="0" y="14" fill="#94a3b8" font-family="'Courier New', monospace" font-size="12" font-weight="600">
+        MACHINE LEARNING ............
+      </text>
+      <text x="210" y="14" fill="#00ff88" font-family="'Courier New', monospace" font-size="12" font-weight="700" filter="url(#glowGreen)">
+        [ ONLINE ]
+      </text>
+    </g>
+
+    <!-- Line 5 -->
+    <g class="l5" transform="translate(0, 124)">
+      <text x="0" y="14" fill="#94a3b8" font-family="'Courier New', monospace" font-size="12" font-weight="600">
+        JAVA RUNTIME (JVM 21) .......
+      </text>
+      <text x="210" y="14" fill="#00ff88" font-family="'Courier New', monospace" font-size="12" font-weight="700" filter="url(#glowGreen)">
+        [ ONLINE ]
+      </text>
+    </g>
+  </g>
+
+  <!-- Middle Boot Sequence Column -->
+  <g transform="translate(360, 55)">
+    <!-- Line 6 -->
+    <g class="l5" transform="translate(0, 34)">
+      <text x="0" y="14" fill="#94a3b8" font-family="'Courier New', monospace" font-size="12" font-weight="600">
+        PYTHON ENGINE (3.11) ........
+      </text>
+      <text x="210" y="14" fill="#00ff88" font-family="'Courier New', monospace" font-size="12" font-weight="700" filter="url(#glowGreen)">
+        [ ONLINE ]
+      </text>
+    </g>
+
+    <!-- Line 7 -->
+    <g class="l6" transform="translate(0, 64)">
+      <text x="0" y="14" fill="#94a3b8" font-family="'Courier New', monospace" font-size="12" font-weight="600">
+        FULL STACK RUNTIME ..........
+      </text>
+      <text x="210" y="14" fill="#00ff88" font-family="'Courier New', monospace" font-size="12" font-weight="700" filter="url(#glowGreen)">
+        [ ONLINE ]
+      </text>
+    </g>
+
+    <!-- Line 8 -->
+    <g class="l7" transform="translate(0, 94)">
+      <text x="0" y="14" fill="#94a3b8" font-family="'Courier New', monospace" font-size="12" font-weight="600">
+        ROBOTICS LAB &amp; SENSORS .....
+      </text>
+      <text x="210" y="14" fill="#00f0ff" font-family="'Courier New', monospace" font-size="12" font-weight="700" filter="url(#glowCyanBoot)">
+        [ ACTIVE ]
+      </text>
+    </g>
+
+    <!-- Line 9 -->
+    <g class="l8" transform="translate(0, 124)">
+      <text x="0" y="14" fill="#94a3b8" font-family="'Courier New', monospace" font-size="12" font-weight="600">
+        MICROSERVICES &amp; REST .......
+      </text>
+      <text x="210" y="14" fill="#00ff88" font-family="'Courier New', monospace" font-size="12" font-weight="700" filter="url(#glowGreen)">
+        [ READY ]
+      </text>
+    </g>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="680" y1="48" x2="680" y2="215" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1" stroke-dasharray="4 4" />
+
+  <!-- Right Diagnostic Big Badge -->
+  <g class="overall-badge" transform="translate(710, 65)">
+    <rect width="250" height="135" rx="8" fill="rgba(0, 240, 255, 0.04)" stroke="rgba(0, 255, 136, 0.4)" stroke-width="1.5" />
+    
+    <text x="125" y="32" text-anchor="middle" fill="#94a3b8" font-family="'Courier New', monospace" font-size="11" font-weight="700" letter-spacing="2">
+      MASTER KERNEL STATUS
+    </text>
+
+    <!-- Huge Glowing ONLINE -->
+    <text x="125" y="76" text-anchor="middle" fill="#00ff88" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="28" font-weight="900" letter-spacing="3" filter="url(#glowGreen)">
+      ONLINE
+    </text>
+
+    <!-- Progress Indicator Bar -->
+    <g transform="translate(25, 95)">
+      <rect width="200" height="6" rx="3" fill="rgba(255, 255, 255, 0.1)" />
+      <rect width="200" height="6" rx="3" fill="#00ff88" filter="url(#glowGreen)" />
+    </g>
+
+    <text x="125" y="118" text-anchor="middle" fill="#00f0ff" font-family="'Courier New', monospace" font-size="10" font-weight="700" letter-spacing="1">
+      ALL 8 SYSTEMS NOMINAL (100%)
+    </text>
+  </g>
+</svg>

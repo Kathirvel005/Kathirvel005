@@ -1,221 +1,177 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="450">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
   <defs>
-    <!-- Background Gradient -->
-    <radialGradient id="radar-bg" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#0b0818" />
-      <stop offset="100%" stop-color="#030305" />
-    </radialGradient>
-
-    <!-- Glowing Filters -->
-    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="5" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-    <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="5" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
-    <!-- Area Gradients -->
-    <linearGradient id="area-grad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00FF88" stop-opacity="0.4" />
-      <stop offset="50%" stop-color="#00D9FF" stop-opacity="0.3" />
-      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.45" />
+    <linearGradient id="radarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050813" />
+      <stop offset="100%" stop-color="#090e1f" />
     </linearGradient>
+
+    <linearGradient id="polyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(0, 240, 255, 0.4)" />
+      <stop offset="50%" stop-color="rgba(139, 92, 246, 0.35)" />
+      <stop offset="100%" stop-color="rgba(0, 255, 136, 0.3)" />
+    </linearGradient>
+
+    <filter id="glowRadar" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
   </defs>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap');
-    
-    .radar-grid {
-      fill: none;
-      stroke: #8B5CF6;
-      stroke-width: 1;
-      stroke-opacity: 0.2;
+    @keyframes radarSweep {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
-    
-    .radar-axis {
-      stroke: #8B5CF6;
-      stroke-width: 1;
-      stroke-opacity: 0.25;
-      stroke-dasharray: 3, 3;
+    @keyframes polyPulse {
+      0%, 100% { fill-opacity: 0.35; stroke-width: 2; }
+      50% { fill-opacity: 0.55; stroke-width: 2.8; }
     }
 
-    .label-text {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 10px;
-      font-weight: 900;
-      fill: #FFFFFF;
-      letter-spacing: 0.5px;
-    }
-    
-    .label-val {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 8px;
-      fill: #00D9FF;
-    }
-
-    .radar-area {
-      stroke: #00FF88;
-      stroke-width: 2.5;
-      fill: url(#area-grad);
-      filter: url(#glow-green);
-      animation: pulse-area 4s ease-in-out infinite alternate;
-      transform-origin: 300px 220px;
-    }
-    
-    .radar-point {
-      fill: #FFFFFF;
-      stroke: #00D9FF;
-      stroke-width: 1.5;
-      filter: url(#glow-blue);
-    }
-
-    @keyframes pulse-area {
-      0% { transform: scale(0.97); opacity: 0.85; }
-      100% { transform: scale(1.03); opacity: 1; }
-    }
-    
-    @keyframes sweep {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .sweep-line {
-      fill: none;
-      stroke: #00D9FF;
-      stroke-width: 1.5;
-      stroke-opacity: 0.35;
-      transform-origin: 300px 220px;
-      animation: sweep 12s linear infinite;
-    }
-
-    .hud-box {
-      fill: #07070a;
-      stroke: #8B5CF6;
-      stroke-opacity: 0.5;
-      stroke-width: 1;
-    }
+    .sweep-line { transform-origin: 400px 245px; animation: radarSweep 10s linear infinite; }
+    .radar-polygon { animation: polyPulse 4s ease-in-out infinite; }
   </style>
 
   <!-- Background -->
-  <rect width="100%" height="100%" fill="url(#radar-bg)" rx="8" stroke="#8B5CF6" stroke-opacity="0.3" stroke-width="1.2" />
+  <rect width="800" height="500" rx="14" fill="url(#radarBg)" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1.5" />
 
-  <!-- Technical Reticle Overlays (Targeting details) -->
-  <!-- Target Scope Corners -->
-  <path d="M 30,30 L 50,30 M 30,30 L 30,50" stroke="#00FF88" stroke-width="2.5" />
-  <path d="M 570,30 L 550,30 M 570,30 L 570,50" stroke="#00FF88" stroke-width="2.5" />
-  <path d="M 30,420 L 50,420 M 30,420 L 30,400" stroke="#00FF88" stroke-width="2.5" />
-  <path d="M 570,420 L 550,420 M 570,420 L 570,400" stroke="#00FF88" stroke-width="2.5" />
+  <!-- Corner Brackets -->
+  <path d="M 2 20 L 2 2 L 20 2" fill="none" stroke="#00f0ff" stroke-width="3" />
+  <path d="M 780 2 L 798 2 L 798 20" fill="none" stroke="#00f0ff" stroke-width="3" />
+  <path d="M 2 480 L 2 498 L 20 498" fill="none" stroke="#8b5cf6" stroke-width="3" />
+  <path d="M 780 498 L 798 498 L 798 480" fill="none" stroke="#8b5cf6" stroke-width="3" />
 
-  <!-- Scope ticks & crosshairs -->
-  <line x1="300" y1="20" x2="300" y2="40" stroke="#8B5CF6" stroke-opacity="0.5" stroke-width="1.5" />
-  <line x1="300" y1="400" x2="300" y2="420" stroke="#8B5CF6" stroke-opacity="0.5" stroke-width="1.5" />
-  <line x1="20" y1="220" x2="40" y2="220" stroke="#8B5CF6" stroke-opacity="0.5" stroke-width="1.5" />
-  <line x1="560" y1="220" x2="580" y2="220" stroke="#8B5CF6" stroke-opacity="0.5" stroke-width="1.5" />
-
-  <!-- Outer circular dial with degree indicators -->
-  <circle cx="300" cy="220" r="175" fill="none" stroke="#00D9FF" stroke-opacity="0.2" stroke-width="1" />
-  <circle cx="300" cy="220" r="182" fill="none" stroke="#00D9FF" stroke-opacity="0.1" stroke-width="1" stroke-dasharray="2, 8" />
-
-  <!-- Decagon radar grids (Levels 1 to 5) scaled with center (300, 220) -->
-  <!-- Level 5 (R=150) -->
-  <polygon points="300,70 388.2,98.7 442.7,173.7 442.7,266.4 388.2,341.4 300,370 211.8,341.4 157.3,266.4 157.3,173.7 211.8,98.7" class="radar-grid" stroke-opacity="0.4" stroke-width="1.5" />
-  <!-- Level 4 (R=120) -->
-  <polygon points="300,100 370.5,122.9 414.1,182.9 414.1,257.1 370.5,317.1 300,340 229.5,317.1 185.9,257.1 185.9,182.9 229.5,122.9" class="radar-grid" />
-  <!-- Level 3 (R=90) -->
-  <polygon points="300,130 352.9,147.2 385.6,192.2 385.6,247.8 352.9,292.8 300,310 247.1,292.8 214.4,247.8 214.4,192.2 247.1,147.2" class="radar-grid" />
-  <!-- Level 2 (R=60) -->
-  <polygon points="300,160 335.3,171.5 357.1,201.5 357.1,238.5 335.3,268.5 300,280 264.7,268.5 242.9,238.5 242.9,201.5 264.7,171.5" class="radar-grid" />
-  <!-- Level 1 (R=30) -->
-  <polygon points="300,190 317.6,195.7 328.5,210.7 328.5,229.3 317.6,244.3 300,250 282.4,244.3 271.5,229.3 271.5,210.7 282.4,195.7" class="radar-grid" />
-
-  <!-- Radar Axes (Lines from center to vertices) -->
-  <g class="radar-axis">
-    <line x1="300" y1="220" x2="300" y2="70" />
-    <line x1="300" y1="220" x2="388.2" y2="98.7" />
-    <line x1="300" y1="220" x2="442.7" y2="173.7" />
-    <line x1="300" y1="220" x2="442.7" y2="266.4" />
-    <line x1="300" y1="220" x2="388.2" y2="341.4" />
-    <line x1="300" y1="220" x2="300" y2="370" />
-    <line x1="300" y1="220" x2="211.8" y2="341.4" />
-    <line x1="300" y1="220" x2="157.3" y2="266.4" />
-    <line x1="300" y1="220" x2="157.3" y2="173.7" />
-    <line x1="300" y1="220" x2="211.8" y2="98.7" />
+  <!-- Top Title Bar -->
+  <g transform="translate(30, 25)">
+    <text x="0" y="16" fill="#00f0ff" font-family="'Courier New', monospace" font-size="12" font-weight="700" letter-spacing="2">
+      // AI CAPABILITY RADAR :: MULTI-DIMENSIONAL FOCUS
+    </text>
+    <rect x="0" y="24" width="260" height="20" rx="4" fill="rgba(139, 92, 246, 0.1)" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1" />
+    <text x="8" y="38" fill="#c084fc" font-family="'Courier New', monospace" font-size="10" font-weight="600">
+      * Self-assessed focus areas
+    </text>
   </g>
 
-  <!-- Glowing Scanner Sweep -->
-  <line x1="300" y1="220" x2="300" y2="50" class="sweep-line" filter="url(#glow-blue)" />
+  <!-- Concentric Rings (R = 35, 70, 105, 140 from cx=400, cy=245) -->
+  <g>
+    <!-- R = 140 -->
+    <polygon points="400,105 489.9,137.7 537.9,219.1 507.2,307.9 424.3,371.8 335.7,371.8 252.8,307.9 222.1,219.1 270.1,137.7" 
+             fill="none" stroke="rgba(0, 240, 255, 0.25)" stroke-width="1" />
+    <!-- R = 105 -->
+    <polygon points="400,140 467.4,164.5 503.4,225.6 480.4,292.2 418.2,340.1 351.8,340.1 289.6,292.2 266.6,225.6 302.6,164.5" 
+             fill="none" stroke="rgba(0, 240, 255, 0.18)" stroke-width="1" stroke-dasharray="3 3" />
+    <!-- R = 70 -->
+    <polygon points="400,175 444.9,191.3 468.9,232 453.6,276.4 412.1,308.4 367.9,308.4 326.4,276.4 311.1,232 335.1,191.3" 
+             fill="none" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1" />
+    <!-- R = 35 -->
+    <polygon points="400,210 422.5,218.2 434.5,238.5 426.8,260.7 406.1,276.7 383.9,276.7 363.2,260.7 355.5,238.5 367.5,218.2" 
+             fill="none" stroke="rgba(0, 240, 255, 0.12)" stroke-width="1" />
 
-  <!-- SKILL DATA POLYGON -->
-  <!-- Calculated coordinates based on actual levels:
-    Java: 100% (R=150) -> (300, 70)
-    Python: 90% (R=135) -> (379.4, 110.8)
-    React: 80% (R=120) -> (414.1, 182.9)
-    Spring Boot: 90% (R=135) -> (428.4, 261.7)
-    Machine Learning: 85% (R=127.5) -> (374.9, 323.2)
-    OpenCV: 80% (R=120) -> (300, 340)
-    MySQL: 80% (R=120) -> (229.5, 317.1)
-    MongoDB: 75% (R=112.5) -> (193.0, 254.8)
-    Git: 85% (R=127.5) -> (178.7, 180.6)
-    Docker: 70% (R=105) -> (238.3, 135.1)
+    <!-- 9 Radial Axis Spoke Lines -->
+    <line x1="400" y1="245" x2="400" y2="105" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" />
+    <line x1="400" y1="245" x2="489.9" y2="137.7" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" />
+    <line x1="400" y1="245" x2="537.9" y2="219.1" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" />
+    <line x1="400" y1="245" x2="507.2" y2="307.9" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" />
+    <line x1="400" y1="245" x2="424.3" y2="371.8" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" />
+    <line x1="400" y1="245" x2="335.7" y2="371.8" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" />
+    <line x1="400" y1="245" x2="252.8" y2="307.9" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" />
+    <line x1="400" y1="245" x2="222.1" y2="219.1" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" />
+    <line x1="400" y1="245" x2="270.1" y2="137.7" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" />
+  </g>
+
+  <!-- Sweeping Radar Scanner Line -->
+  <line class="sweep-line" x1="400" y1="245" x2="400" y2="105" stroke="#00f0ff" stroke-width="2" opacity="0.6" filter="url(#glowRadar)" />
+
+  <!-- Data Polygon (Kathirvel's Self-Assessed Distribution) -->
+  <!--
+    Axes &amp; Scaled Values (out of 140 max):
+    1. Python (95% -> 133): 400, 112
+    2. Java (82% -> 114.8): 473.7, 157.0
+    3. Backend (85% -> 119): 517.2, 223.0
+    4. Database (84% -> 117.6): 490.1, 297.8
+    5. Git/GitHub (90% -> 126): 421.9, 359.1
+    6. Frontend (86% -> 120.4): 344.5, 354.3
+    7. Robotics (82% -> 114.8): 279.3, 296.6
+    8. Computer Vision (92% -> 128.8): 236.3, 221.2
+    9. AI / ML (92% -> 128.8): 280.5, 146.3
   -->
-  <polygon points="300,70 379.4,110.8 414.1,182.9 428.4,261.7 374.9,323.2 300,340 229.5,317.1 193.0,254.8 178.7,180.6 238.3,135.1" class="radar-area" />
+  <polygon class="radar-polygon" 
+           points="400,112 473.7,157 517.2,223 490.1,297.8 421.9,359.1 344.5,354.3 279.3,296.6 236.3,221.2 280.5,146.3" 
+           fill="url(#polyGrad)" stroke="#00f0ff" stroke-width="2" filter="url(#glowRadar)" />
 
-  <!-- Skill Data Points (Circles) -->
-  <circle cx="300" cy="70" r="5" class="radar-point" />
-  <circle cx="379.4" cy="110.8" r="5" class="radar-point" />
-  <circle cx="414.1" cy="182.9" r="5" class="radar-point" />
-  <circle cx="428.4" cy="261.7" r="5" class="radar-point" />
-  <circle cx="374.9" cy="323.2" r="5" class="radar-point" />
-  <circle cx="300" cy="340" r="5" class="radar-point" />
-  <circle cx="229.5" cy="317.1" r="5" class="radar-point" />
-  <circle cx="193.0" cy="254.8" r="5" class="radar-point" />
-  <circle cx="178.7" cy="180.6" r="5" class="radar-point" />
-  <circle cx="238.3" cy="135.1" r="5" class="radar-point" />
+  <!-- Data Points -->
+  <circle cx="400" cy="112" r="4" fill="#ffffff" stroke="#00f0ff" stroke-width="2" />
+  <circle cx="473.7" cy="157" r="4" fill="#ffffff" stroke="#8b5cf6" stroke-width="2" />
+  <circle cx="517.2" cy="223" r="4" fill="#ffffff" stroke="#00ff88" stroke-width="2" />
+  <circle cx="490.1" cy="297.8" r="4" fill="#ffffff" stroke="#00f0ff" stroke-width="2" />
+  <circle cx="421.9" cy="359.1" r="4" fill="#ffffff" stroke="#8b5cf6" stroke-width="2" />
+  <circle cx="344.5" cy="354.3" r="4" fill="#ffffff" stroke="#00ff88" stroke-width="2" />
+  <circle cx="279.3" cy="296.6" r="4" fill="#ffffff" stroke="#00f0ff" stroke-width="2" />
+  <circle cx="236.3" cy="221.2" r="4" fill="#ffffff" stroke="#8b5cf6" stroke-width="2" />
+  <circle cx="280.5" cy="146.3" r="4" fill="#ffffff" stroke="#00ff88" stroke-width="2" />
 
-  <!-- Skill Readout HUD Panels -->
-  <!-- Top Left: Bio info -->
-  <rect x="40" y="40" width="110" height="45" rx="4" class="hud-box" />
-  <text x="48" y="55" font-family="'JetBrains Mono', monospace" font-size="8" fill="#8B5CF6">SYS_LNK: RUNNING</text>
-  <text x="48" y="67" font-family="'JetBrains Mono', monospace" font-size="8" fill="#00FF88">TRK_LOCK: TRUE</text>
-  <text x="48" y="79" font-family="'JetBrains Mono', monospace" font-size="8" fill="#00D9FF">VER: 04.0.8</text>
+  <!-- Labels on Perimeter -->
+  <!-- 1: Python -->
+  <g transform="translate(400, 85)">
+    <rect x="-42" y="-14" width="84" height="20" rx="4" fill="rgba(0, 240, 255, 0.15)" stroke="#00f0ff" stroke-width="1" />
+    <text x="0" y="0" text-anchor="middle" fill="#ffffff" font-family="'Courier New', monospace" font-size="11" font-weight="700">PYTHON</text>
+  </g>
 
-  <!-- Top Right: Telemetry -->
-  <rect x="450" y="40" width="110" height="45" rx="4" class="hud-box" />
-  <text x="458" y="55" font-family="'JetBrains Mono', monospace" font-size="8" fill="#8B5CF6">AZIMUTH: 182°</text>
-  <text x="458" y="67" font-family="'JetBrains Mono', monospace" font-size="8" fill="#00FF88">RANGE: 150m</text>
-  <text x="458" y="79" font-family="'JetBrains Mono', monospace" font-size="8" fill="#00D9FF">ELEV: +12.04°</text>
+  <!-- 2: Java -->
+  <g transform="translate(525, 130)">
+    <rect x="-32" y="-12" width="64" height="20" rx="4" fill="rgba(234, 88, 12, 0.15)" stroke="#ea580c" stroke-width="1" />
+    <text x="0" y="2" text-anchor="middle" fill="#ffffff" font-family="'Courier New', monospace" font-size="11" font-weight="700">JAVA</text>
+  </g>
 
-  <!-- Labels -->
-  <!-- Java -->
-  <text x="300" y="52" class="label-text" text-anchor="middle">JAVA <tspan class="label-val">[10/10]</tspan></text>
-  <!-- Python -->
-  <text x="405" y="97" class="label-text" text-anchor="start">PYTHON <tspan class="label-val">[9/10]</tspan></text>
-  <!-- React -->
-  <text x="458" y="177" class="label-text" text-anchor="start">REACT <tspan class="label-val">[8/10]</tspan></text>
-  <!-- Spring Boot -->
-  <text x="458" y="270" class="label-text" text-anchor="start">SPRING BOOT <tspan class="label-val">[9/10]</tspan></text>
-  <!-- Machine Learning -->
-  <text x="405" y="350" class="label-text" text-anchor="start">ML <tspan class="label-val">[8.5/10]</tspan></text>
-  <!-- OpenCV -->
-  <text x="300" y="390" class="label-text" text-anchor="middle">OPENCV <tspan class="label-val">[8/10]</tspan></text>
-  <!-- MySQL -->
-  <text x="195" y="350" class="label-text" text-anchor="end">MYSQL <tspan class="label-val">[8/10]</tspan></text>
-  <!-- MongoDB -->
-  <text x="142" y="270" class="label-text" text-anchor="end">MONGODB <tspan class="label-val">[7.5/10]</tspan></text>
-  <!-- Git -->
-  <text x="142" y="177" class="label-text" text-anchor="end">GIT <tspan class="label-val">[8.5/10]</tspan></text>
-  <!-- Docker -->
-  <text x="195" y="97" class="label-text" text-anchor="end">DOCKER <tspan class="label-val">[7/10]</tspan></text>
+  <!-- 3: Backend -->
+  <g transform="translate(595, 220)">
+    <rect x="-40" y="-12" width="80" height="20" rx="4" fill="rgba(0, 255, 136, 0.15)" stroke="#00ff88" stroke-width="1" />
+    <text x="0" y="2" text-anchor="middle" fill="#ffffff" font-family="'Courier New', monospace" font-size="10" font-weight="700">BACKEND</text>
+  </g>
 
-  <!-- Core Label Center -->
-  <rect x="260" y="205" width="80" height="30" rx="4" fill="#07070a" stroke="#8B5CF6" stroke-opacity="0.6" />
-  <text x="300" y="223" font-family="'Orbitron', sans-serif" font-size="10" font-weight="900" fill="#00FF88" text-anchor="middle" filter="url(#glow-green)">SYS.RADAR</text>
+  <!-- 4: Database -->
+  <g transform="translate(565, 325)">
+    <rect x="-44" y="-12" width="88" height="20" rx="4" fill="rgba(14, 165, 233, 0.15)" stroke="#0284c7" stroke-width="1" />
+    <text x="0" y="2" text-anchor="middle" fill="#ffffff" font-family="'Courier New', monospace" font-size="10" font-weight="700">DATABASE</text>
+  </g>
+
+  <!-- 5: Git / GitHub -->
+  <g transform="translate(440, 395)">
+    <rect x="-48" y="-12" width="96" height="20" rx="4" fill="rgba(240, 80, 50, 0.15)" stroke="#f05032" stroke-width="1" />
+    <text x="0" y="2" text-anchor="middle" fill="#ffffff" font-family="'Courier New', monospace" font-size="10" font-weight="700">GIT / GITHUB</text>
+  </g>
+
+  <!-- 6: Frontend -->
+  <g transform="translate(315, 395)">
+    <rect x="-44" y="-12" width="88" height="20" rx="4" fill="rgba(0, 240, 255, 0.15)" stroke="#00f0ff" stroke-width="1" />
+    <text x="0" y="2" text-anchor="middle" fill="#ffffff" font-family="'Courier New', monospace" font-size="10" font-weight="700">FRONTEND</text>
+  </g>
+
+  <!-- 7: Robotics -->
+  <g transform="translate(195, 325)">
+    <rect x="-44" y="-12" width="88" height="20" rx="4" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="1" />
+    <text x="0" y="2" text-anchor="middle" fill="#ffffff" font-family="'Courier New', monospace" font-size="10" font-weight="700">ROBOTICS</text>
+  </g>
+
+  <!-- 8: Computer Vision -->
+  <g transform="translate(145, 220)">
+    <rect x="-56" y="-12" width="112" height="20" rx="4" fill="rgba(139, 92, 246, 0.15)" stroke="#8b5cf6" stroke-width="1" />
+    <text x="0" y="2" text-anchor="middle" fill="#ffffff" font-family="'Courier New', monospace" font-size="9" font-weight="700">COMPUTER VISION</text>
+  </g>
+
+  <!-- 9: AI / ML -->
+  <g transform="translate(225, 130)">
+    <rect x="-40" y="-12" width="80" height="20" rx="4" fill="rgba(0, 255, 136, 0.15)" stroke="#00ff88" stroke-width="1" />
+    <text x="0" y="2" text-anchor="middle" fill="#ffffff" font-family="'Courier New', monospace" font-size="10" font-weight="700">AI / ML</text>
+  </g>
+
+  <!-- Center Origin Core -->
+  <circle cx="400" cy="245" r="4" fill="#00f0ff" filter="url(#glowRadar)" />
+
+  <!-- Bottom Legend / Verification Tag -->
+  <text x="400" y="468" text-anchor="middle" fill="rgba(255, 255, 255, 0.45)" font-family="'Courier New', monospace" font-size="10" letter-spacing="1">
+    SCALE: 0 TO 100% RELATIVE DOMAIN DEVOTION // NON-FABRICATED PROFILE METRICS
+  </text>
 </svg>

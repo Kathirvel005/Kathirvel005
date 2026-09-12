@@ -1,0 +1,44 @@
+name: Update & Maintain Profile Telemetry
+
+on:
+  schedule:
+    # Run every Sunday at 00:00 UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  profile-telemetry-check:
+    name: Telemetry Health & Timestamp Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate Asset Integrity
+        run: |
+          echo "Auditing profile assets..."
+          for file in assets/*.svg assets/projects/*.svg; do
+            if [ -f "$file" ]; then
+              echo "Valid: $file"
+            else
+              echo "Missing asset: $file"
+              exit 1
+            fi
+          done
+          echo "All SVG assets verified."
+
+      - name: Update Profile Telemetry Log
+        run: |
+          echo "Telemetry check passed at $(date -u)" >> .telemetry.log
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .telemetry.log || true
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "chore(telemetry): auto-refresh profile heartbeat [skip ci]"
+            git push
+          fi
