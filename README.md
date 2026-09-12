@@ -15,6 +15,21 @@
   <!-- System Boot Diagnostic Terminal Sequence -->
   <img src="assets/system-boot.svg" width="100%" alt="System Boot Initializing Diagnostics" />
 
+  <br><br>
+
+  <!-- Cybernetic HUD Quick Navigation -->
+  <a href="#about"><img src="https://img.shields.io/badge/ABOUT-060913?style=flat-square&amp;logoColor=00f0ff&amp;label=%E2%8C%81&amp;labelColor=00f0ff" alt="About" /></a>
+  &nbsp;
+  <a href="#tech-matrix"><img src="https://img.shields.io/badge/TECH_MATRIX-060913?style=flat-square&amp;logoColor=8b5cf6&amp;label=%E2%8C%81&amp;labelColor=8b5cf6" alt="Tech Stack" /></a>
+  &nbsp;
+  <a href="#featured-projects"><img src="https://img.shields.io/badge/PROJECTS-060913?style=flat-square&amp;logoColor=00ff88&amp;label=%E2%8C%81&amp;labelColor=00ff88" alt="Projects" /></a>
+  &nbsp;
+  <a href="#git-command-center"><img src="https://img.shields.io/badge/METRICS-060913?style=flat-square&amp;logoColor=00f0ff&amp;label=%E2%8C%81&amp;labelColor=00f0ff" alt="Metrics" /></a>
+  &nbsp;
+  <a href="#recruiter-terminal"><img src="https://img.shields.io/badge/TERMINAL-060913?style=flat-square&amp;logoColor=c084fc&amp;label=%E2%8C%81&amp;labelColor=c084fc" alt="Terminal" /></a>
+  &nbsp;
+  <a href="#connect"><img src="https://img.shields.io/badge/CONNECT-060913?style=flat-square&amp;logoColor=00ff88&amp;label=%E2%8C%81&amp;labelColor=00ff88" alt="Connect" /></a>
+
 </div>
 
 <br>
@@ -45,6 +60,7 @@
 <!-- ========================================================================= -->
 <!-- SECTION: ABOUT ME -->
 <!-- ========================================================================= -->
+<span id="about"></span>
 ## 👤 ABOUT // KATHIRVEL T
 
 <table width="100%">
@@ -91,6 +107,7 @@
 <!-- ========================================================================= -->
 <!-- SECTION: TECHNOLOGY MATRIX -->
 <!-- ========================================================================= -->
+<span id="tech-matrix"></span>
 ## 💻 TECHNOLOGY MATRIX
 
 <div align="center">
@@ -165,6 +182,7 @@
 <!-- ========================================================================= -->
 <!-- SECTION: FEATURED PROJECTS -->
 <!-- ========================================================================= -->
+<span id="featured-projects"></span>
 ## 🚀 FEATURED PROJECT COMMAND DECK
 
 <table width="100%">
@@ -231,6 +249,7 @@
 <!-- ========================================================================= -->
 <!-- SECTION: GITHUB COMMAND CENTER -->
 <!-- ========================================================================= -->
+<span id="git-command-center"></span>
 ## 📊 GITHUB COMMAND CENTER
 
 <table width="100%">
@@ -274,6 +293,7 @@
 <!-- ========================================================================= -->
 <!-- SECTION: INTERACTIVE TERMINAL -->
 <!-- ========================================================================= -->
+<span id="recruiter-terminal"></span>
 ## 🖥️ INTERACTIVE RECRUITER CONSOLE
 
 <div align="center">
@@ -440,6 +460,7 @@ LOCATION:       Tamil Nadu, India
 <!-- ========================================================================= -->
 <!-- SECTION: COMMUNICATION PANEL -->
 <!-- ========================================================================= -->
+<span id="connect"></span>
 ## 🌐 CONNECT &amp; COLLABORATE
 
 <div align="center">
